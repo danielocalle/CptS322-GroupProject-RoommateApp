@@ -14,7 +14,7 @@ assignees: ''
 ### Acceptance Criteria
 
 ```gherkin
-Given [some context]
-When [certain action is taken]
-Then [the outcome of action is observed]
+Given we have a [type of diagram] diagram
+When we look at the diagram
+Then we should have a better understanding of the layout of our system
 ```
