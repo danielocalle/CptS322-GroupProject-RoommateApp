@@ -209,9 +209,9 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.ForeColor = Color.White;
             btnExit.Image = Properties.Resources.exit2;
-            btnExit.Location = new Point(903, 12);
+            btnExit.Location = new Point(903, 0);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(36, 36);
+            btnExit.Size = new Size(48, 48);
             btnExit.TabIndex = 1;
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
