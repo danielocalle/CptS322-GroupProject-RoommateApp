@@ -103,5 +103,10 @@ namespace RoomMate_WinFormsApp
         {
             this.Close();
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
