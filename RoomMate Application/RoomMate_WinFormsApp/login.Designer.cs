@@ -115,6 +115,7 @@
             loginbutton.TabIndex = 5;
             loginbutton.Text = "Login";
             loginbutton.UseVisualStyleBackColor = false;
+            loginbutton.Click += loginbutton_Click;
             // 
             // passwordtext
             // 
@@ -260,6 +261,7 @@
             createaccbutton.TabIndex = 15;
             createaccbutton.Text = "Register";
             createaccbutton.UseVisualStyleBackColor = false;
+            createaccbutton.Click += createaccbutton_Click;
             // 
             // lastnametext
             // 
@@ -427,6 +429,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "login";
             Text = "login";
+            FormClosed += login_FormClosed;
             mainpanel.ResumeLayout(false);
             mainpanel.PerformLayout();
             registerpanel.ResumeLayout(false);

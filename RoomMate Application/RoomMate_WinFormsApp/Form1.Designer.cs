@@ -58,16 +58,18 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 577);
+            panel1.Size = new Size(266, 962);
             panel1.TabIndex = 0;
             // 
             // PnlNav
             // 
             PnlNav.BackColor = Color.FromArgb(0, 126, 249);
-            PnlNav.Location = new Point(0, 193);
+            PnlNav.Location = new Point(0, 322);
+            PnlNav.Margin = new Padding(4, 5, 4, 5);
             PnlNav.Name = "PnlNav";
-            PnlNav.Size = new Size(3, 100);
+            PnlNav.Size = new Size(4, 167);
             PnlNav.TabIndex = 2;
             // 
             // btnSettings
@@ -78,9 +80,10 @@
             btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
             btnSettings.Image = Properties.Resources.settings;
-            btnSettings.Location = new Point(0, 521);
+            btnSettings.Location = new Point(0, 869);
+            btnSettings.Margin = new Padding(4, 5, 4, 5);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(186, 56);
+            btnSettings.Size = new Size(266, 93);
             btnSettings.TabIndex = 1;
             btnSettings.Text = "Settings";
             btnSettings.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -96,9 +99,10 @@
             btnProfile.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.FromArgb(0, 126, 249);
             btnProfile.Image = Properties.Resources.profile;
-            btnProfile.Location = new Point(0, 328);
+            btnProfile.Location = new Point(0, 546);
+            btnProfile.Margin = new Padding(4, 5, 4, 5);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(186, 56);
+            btnProfile.Size = new Size(266, 93);
             btnProfile.TabIndex = 1;
             btnProfile.Text = "Profile";
             btnProfile.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -114,9 +118,10 @@
             btnMatches.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMatches.ForeColor = Color.FromArgb(0, 126, 249);
             btnMatches.Image = Properties.Resources.matches;
-            btnMatches.Location = new Point(0, 272);
+            btnMatches.Location = new Point(0, 453);
+            btnMatches.Margin = new Padding(4, 5, 4, 5);
             btnMatches.Name = "btnMatches";
-            btnMatches.Size = new Size(186, 56);
+            btnMatches.Size = new Size(266, 93);
             btnMatches.TabIndex = 1;
             btnMatches.Text = "Matches";
             btnMatches.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -132,9 +137,10 @@
             btnMessages.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMessages.ForeColor = Color.FromArgb(0, 126, 249);
             btnMessages.Image = Properties.Resources.messages;
-            btnMessages.Location = new Point(0, 216);
+            btnMessages.Location = new Point(0, 360);
+            btnMessages.Margin = new Padding(4, 5, 4, 5);
             btnMessages.Name = "btnMessages";
-            btnMessages.Size = new Size(186, 56);
+            btnMessages.Size = new Size(266, 93);
             btnMessages.TabIndex = 1;
             btnMessages.Text = "Messages";
             btnMessages.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -150,9 +156,10 @@
             btnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
             btnDashboard.Image = Properties.Resources.home2;
-            btnDashboard.Location = new Point(0, 160);
+            btnDashboard.Location = new Point(0, 267);
+            btnDashboard.Margin = new Padding(4, 5, 4, 5);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(186, 56);
+            btnDashboard.Size = new Size(266, 93);
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -167,17 +174,19 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(186, 160);
+            panel2.Size = new Size(266, 267);
             panel2.TabIndex = 0;
             // 
             // label2
             // 
             label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(158, 161, 178);
-            label2.Location = new Point(0, 128);
+            label2.Location = new Point(0, 213);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(186, 13);
+            label2.Size = new Size(266, 22);
             label2.TabIndex = 2;
             label2.Text = "Extra User Info";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -186,9 +195,10 @@
             // 
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(0, 126, 249);
-            label1.Location = new Point(0, 98);
+            label1.Location = new Point(0, 163);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(186, 16);
+            label1.Size = new Size(266, 27);
             label1.TabIndex = 1;
             label1.Text = "John Doe";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -196,9 +206,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(60, 22);
+            pictureBox1.Location = new Point(86, 37);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 63);
+            pictureBox1.Size = new Size(90, 105);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -209,26 +220,29 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.ForeColor = Color.White;
             btnExit.Image = Properties.Resources.exit2;
-            btnExit.Location = new Point(903, 0);
+            btnExit.Location = new Point(1290, 0);
+            btnExit.Margin = new Padding(4, 5, 4, 5);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(48, 48);
+            btnExit.Size = new Size(69, 80);
             btnExit.TabIndex = 1;
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(951, 577);
+            ClientSize = new Size(1359, 962);
             Controls.Add(btnExit);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

@@ -12,9 +12,12 @@ namespace RoomMate_WinFormsApp
 {
     public partial class login : Form
     {
+        Form main;
+
         public login()
         {
             InitializeComponent();
+            main = new Form1();
         }
 
         private void introlabel_Click(object sender, EventArgs e)
@@ -79,6 +82,23 @@ namespace RoomMate_WinFormsApp
             registerpanel.Visible = false;
             mainpanel.Visible = true;
             forgotpasswordpanel.Visible = false;
+        }
+
+        private void loginbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            main.Show();
+        }
+
+        private void createaccbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            main.Show();
+        }
+
+        private void login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
