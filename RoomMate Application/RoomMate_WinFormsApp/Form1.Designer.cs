@@ -42,7 +42,8 @@
             pictureBox1 = new PictureBox();
             btnExit = new Button();
             ProfilePanel = new Panel();
-            clearPrefbutton1 = new Button();
+            profilePageLabel = new Label();
+            savePrefbutton1 = new Button();
             yesButton6 = new Button();
             yesButton5 = new Button();
             yesButton4 = new Button();
@@ -69,7 +70,6 @@
             Question1label = new Label();
             AboutMelabel = new Label();
             textBox1 = new TextBox();
-            profilePageLabel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -260,7 +260,7 @@
             // ProfilePanel
             // 
             ProfilePanel.Controls.Add(profilePageLabel);
-            ProfilePanel.Controls.Add(clearPrefbutton1);
+            ProfilePanel.Controls.Add(savePrefbutton1);
             ProfilePanel.Controls.Add(yesButton6);
             ProfilePanel.Controls.Add(yesButton5);
             ProfilePanel.Controls.Add(yesButton4);
@@ -293,17 +293,27 @@
             ProfilePanel.TabIndex = 2;
             ProfilePanel.Paint += ProfilePanel_Paint;
             // 
-            // clearPrefbutton1
+            // profilePageLabel
             // 
-            clearPrefbutton1.FlatStyle = FlatStyle.Flat;
-            clearPrefbutton1.ForeColor = SystemColors.Control;
-            clearPrefbutton1.Location = new Point(528, 77);
-            clearPrefbutton1.Name = "clearPrefbutton1";
-            clearPrefbutton1.Size = new Size(231, 29);
-            clearPrefbutton1.TabIndex = 26;
-            clearPrefbutton1.Text = "Clear preferences";
-            clearPrefbutton1.UseVisualStyleBackColor = true;
-            clearPrefbutton1.Click += clearPrefbutton1_Click;
+            profilePageLabel.Font = new Font("Segoe UI", 22F);
+            profilePageLabel.ForeColor = SystemColors.Control;
+            profilePageLabel.Location = new Point(299, 0);
+            profilePageLabel.Name = "profilePageLabel";
+            profilePageLabel.Size = new Size(232, 74);
+            profilePageLabel.TabIndex = 27;
+            profilePageLabel.Text = "Profile page";
+            // 
+            // savePrefbutton1
+            // 
+            savePrefbutton1.FlatStyle = FlatStyle.Flat;
+            savePrefbutton1.ForeColor = SystemColors.Control;
+            savePrefbutton1.Location = new Point(528, 77);
+            savePrefbutton1.Name = "savePrefbutton1";
+            savePrefbutton1.Size = new Size(231, 29);
+            savePrefbutton1.TabIndex = 26;
+            savePrefbutton1.Text = "Save preferences";
+            savePrefbutton1.UseVisualStyleBackColor = true;
+            savePrefbutton1.Click += savePrefbutton1_Click;
             // 
             // yesButton6
             // 
@@ -597,16 +607,6 @@
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // profilePageLabel
-            // 
-            profilePageLabel.Font = new Font("Segoe UI", 22F);
-            profilePageLabel.ForeColor = SystemColors.Control;
-            profilePageLabel.Location = new Point(299, 0);
-            profilePageLabel.Name = "profilePageLabel";
-            profilePageLabel.Size = new Size(232, 74);
-            profilePageLabel.TabIndex = 27;
-            profilePageLabel.Text = "Profile page";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -672,7 +672,7 @@
         private Button noButton4;
         private Button noButton3;
         private Button yesButton3;
-        private Button clearPrefbutton1;
+        private Button savePrefbutton1;
         private Label profilePageLabel;
     }
 }
