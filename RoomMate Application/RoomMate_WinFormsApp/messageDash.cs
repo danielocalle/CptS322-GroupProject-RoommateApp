@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RoomMate_WinFormsApp
 {
-    public partial class Form2 : Form
+    public partial class messageDash : Form
     {
-        public Form2()
+        public messageDash()
         {
             InitializeComponent();
         }
