@@ -22,9 +22,10 @@ namespace RoomMate_WinFormsApp
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-
+            
             currentButton = btnDashboard;
-         
+            ActivateButton(btnDashboard);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
