@@ -129,6 +129,7 @@
             passwordtext.Location = new Point(61, 226);
             passwordtext.Margin = new Padding(2);
             passwordtext.Name = "passwordtext";
+            passwordtext.PasswordChar = '*';
             passwordtext.Size = new Size(271, 23);
             passwordtext.TabIndex = 4;
             // 
@@ -172,7 +173,6 @@
             introlabel.TabIndex = 0;
             introlabel.Text = "Roommate Matching Application";
             introlabel.TextAlign = ContentAlignment.TopCenter;
-            introlabel.Click += introlabel_Click;
             // 
             // registerpanel
             // 
@@ -237,7 +237,6 @@
             passwordregistertext.Name = "passwordregistertext";
             passwordregistertext.Size = new Size(271, 23);
             passwordregistertext.TabIndex = 19;
-            passwordregistertext.TextChanged += textBox2_TextChanged;
             // 
             // newpasswordlabel
             // 
@@ -301,7 +300,6 @@
             lastnamelabel.Size = new Size(175, 23);
             lastnamelabel.TabIndex = 11;
             lastnamelabel.Text = "Last name:";
-            lastnamelabel.Click += label1_Click_1;
             // 
             // nametext
             // 
@@ -322,7 +320,6 @@
             namelabel.Size = new Size(175, 23);
             namelabel.TabIndex = 9;
             namelabel.Text = "First name:";
-            namelabel.Click += label2_Click;
             // 
             // label3
             // 
@@ -418,7 +415,6 @@
             label1.Size = new Size(388, 23);
             label1.TabIndex = 10;
             label1.Text = "What was the name of your first pet?";
-            label1.Click += label1_Click;
             // 
             // forgotusernametext
             // 
@@ -471,9 +467,9 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(951, 577);
             Controls.Add(btnExit);
-            Controls.Add(forgotpasswordpanel);
             Controls.Add(mainpanel);
             Controls.Add(registerpanel);
+            Controls.Add(forgotpasswordpanel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "login";
