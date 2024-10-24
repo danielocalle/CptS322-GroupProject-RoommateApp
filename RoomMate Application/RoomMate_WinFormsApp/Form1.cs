@@ -25,7 +25,7 @@ namespace RoomMate_WinFormsApp
             
             currentButton = btnDashboard;
             ActivateButton(btnDashboard);
-
+            ProfilePanel.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -122,7 +122,6 @@ namespace RoomMate_WinFormsApp
             Application.Exit();
         }
 
-        feature/profilePage
         private void label1_Click(object sender, EventArgs e)
         {
 

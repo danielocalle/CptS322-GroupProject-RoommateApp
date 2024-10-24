@@ -18,6 +18,9 @@ namespace RoomMate_WinFormsApp
         {
             InitializeComponent();
             main = new Form1();
+            mainpanel.Visible = true;
+            registerpanel.Visible = false;
+            forgotpasswordpanel.Visible = false;
         }
 
         private void introlabel_Click(object sender, EventArgs e)
@@ -99,6 +102,11 @@ namespace RoomMate_WinFormsApp
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
