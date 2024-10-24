@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoommateAppLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,33 +24,10 @@ namespace RoomMate_WinFormsApp
             forgotpasswordpanel.Visible = false;
         }
 
-        private void introlabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void registerbutton_Click(object sender, EventArgs e)
         {
+            usernametext.Clear();
+            passwordtext.Clear();
             registerpanel.Visible = true;
             mainpanel.Visible = false;
         }
@@ -61,13 +39,10 @@ namespace RoomMate_WinFormsApp
             forgotpasswordpanel.Visible = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void forgotbutton_Click(object sender, EventArgs e)
         {
+            usernametext.Clear();
+            passwordtext.Clear();
             registerpanel.Visible = false;
             mainpanel.Visible = false;
             forgotpasswordpanel.Visible = true;
@@ -82,21 +57,56 @@ namespace RoomMate_WinFormsApp
 
         private void savebutton_Click(object sender, EventArgs e)
         {
-            registerpanel.Visible = false;
-            mainpanel.Visible = true;
-            forgotpasswordpanel.Visible = false;
+            if (SQLiteDataAccess.ChangePassword(new AccountLoginInfo(forgotusernametext.Text,
+                textBox2.Text, textBox1.Text)))
+            {
+                registerpanel.Visible = false;
+                mainpanel.Visible = true;
+                forgotpasswordpanel.Visible = false;
+
+                forgotusernametext.Clear();
+                textBox1.Clear();
+                textBox2.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Error Resetting Password", "Try Again", MessageBoxButtons.OK);
+            }
+
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            main.Show();
+            if (SQLiteDataAccess.VerifyLogin(new AccountLoginInfo(usernametext.Text,
+                passwordtext.Text)))
+            {
+                this.Hide();
+                main.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login Unsuccessful", "Try Again", MessageBoxButtons.OK);
+            }
         }
 
         private void createaccbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            main.Show();
+            if (usernameregistertext.Text == string.Empty || passwordregistertext.Text == string.Empty || 
+                textBox4.Text == string.Empty || nametext.Text == string.Empty || lastnametext.Text == string.Empty)
+            {
+                MessageBox.Show("All Fields Must Be Answered", "Account Creation Unsuccessful", MessageBoxButtons.OK);
+                return;
+            }
+            if (SQLiteDataAccess.CreateAccount(new AccountLoginInfo(usernameregistertext.Text,
+                passwordregistertext.Text, textBox4.Text, nametext.Text, lastnametext.Text)))
+            {
+                this.Hide();
+                main.Show();
+            }
+            else
+            {
+                MessageBox.Show("Account Creation Unsuccessful", "Try Again", MessageBoxButtons.OK);
+            }
         }
 
         private void login_FormClosed(object sender, FormClosedEventArgs e)
