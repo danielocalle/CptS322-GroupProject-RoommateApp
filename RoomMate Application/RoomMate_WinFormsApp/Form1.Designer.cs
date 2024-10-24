@@ -88,14 +88,17 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+         feature/profilePage
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(213, 769);
+
             panel1.TabIndex = 0;
             // 
             // PnlNav
             // 
             PnlNav.BackColor = Color.FromArgb(0, 126, 249);
+         feature/profilePage
             PnlNav.Location = new Point(0, 257);
             PnlNav.Margin = new Padding(3, 4, 3, 4);
             PnlNav.Name = "PnlNav";
@@ -110,6 +113,7 @@
             btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
             btnSettings.Image = Properties.Resources.settings;
+         feature/profilePage
             btnSettings.Location = new Point(0, 694);
             btnSettings.Margin = new Padding(3, 4, 3, 4);
             btnSettings.Name = "btnSettings";
@@ -129,6 +133,7 @@
             btnProfile.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.FromArgb(0, 126, 249);
             btnProfile.Image = Properties.Resources.profile;
+         feature/profilePage
             btnProfile.Location = new Point(0, 438);
             btnProfile.Margin = new Padding(3, 4, 3, 4);
             btnProfile.Name = "btnProfile";
@@ -148,6 +153,7 @@
             btnMatches.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMatches.ForeColor = Color.FromArgb(0, 126, 249);
             btnMatches.Image = Properties.Resources.matches;
+         feature/profilePage
             btnMatches.Location = new Point(0, 363);
             btnMatches.Margin = new Padding(3, 4, 3, 4);
             btnMatches.Name = "btnMatches";
@@ -167,6 +173,7 @@
             btnMessages.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMessages.ForeColor = Color.FromArgb(0, 126, 249);
             btnMessages.Image = Properties.Resources.messages;
+         feature/profilePage
             btnMessages.Location = new Point(0, 288);
             btnMessages.Margin = new Padding(3, 4, 3, 4);
             btnMessages.Name = "btnMessages";
@@ -186,6 +193,7 @@
             btnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
             btnDashboard.Image = Properties.Resources.home2;
+         feature/profilePage
             btnDashboard.Location = new Point(0, 213);
             btnDashboard.Margin = new Padding(3, 4, 3, 4);
             btnDashboard.Name = "btnDashboard";
@@ -204,6 +212,7 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+         feature/profilePage
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(213, 213);
@@ -213,6 +222,7 @@
             // 
             label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(158, 161, 178);
+         feature/profilePage
             label2.Location = new Point(0, 171);
             label2.Name = "label2";
             label2.Size = new Size(213, 17);
@@ -224,6 +234,7 @@
             // 
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(0, 126, 249);
+         feature/profilePage
             label1.Location = new Point(0, 131);
             label1.Name = "label1";
             label1.Size = new Size(213, 21);
@@ -235,6 +246,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+         feature/profilePage
             pictureBox1.Location = new Point(69, 29);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
@@ -249,6 +261,7 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.ForeColor = Color.White;
             btnExit.Image = Properties.Resources.exit2;
+         feature/profilePage
             btnExit.Location = new Point(1032, 0);
             btnExit.Margin = new Padding(3, 4, 3, 4);
             btnExit.Name = "btnExit";
@@ -609,6 +622,7 @@
             // 
             // Form1
             // 
+         feature/profilePage
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
@@ -622,6 +636,7 @@
             RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
