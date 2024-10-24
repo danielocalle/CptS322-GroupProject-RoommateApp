@@ -12,8 +12,8 @@ namespace RoomMate_WinFormsApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new login());
-            //Application.Run(new Form1());
-            Application.Run(new messageDash());
+            Application.Run(new Form1());
+            //Application.Run(new messageDash());
         }
     }
 }

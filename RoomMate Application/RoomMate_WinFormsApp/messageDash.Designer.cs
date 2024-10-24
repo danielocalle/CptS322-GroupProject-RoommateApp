@@ -98,7 +98,6 @@ namespace RoomMate_WinFormsApp
             panel1.Name = "panel1";
             panel1.Size = new Size(266, 962);
             panel1.TabIndex = 0;
-            //panel1.Paint += splitContainer1_Panel1_Paint;
             // 
             // btnDashboard
             // 
@@ -129,7 +128,6 @@ namespace RoomMate_WinFormsApp
             panel2.Name = "panel2";
             panel2.Size = new Size(266, 267);
             panel2.TabIndex = 0;
-            //panel2.Paint += splitContainer1_Panel2_Paint;
             // 
             // label2
             // 
@@ -185,7 +183,6 @@ namespace RoomMate_WinFormsApp
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(10, 124);
             progressBar1.TabIndex = 2;
-            //progressBar1.Click += progressBar1_Click;
             // 
             // splitContainer1
             // 
@@ -281,11 +278,10 @@ namespace RoomMate_WinFormsApp
             label3.TabIndex = 0;
             label3.Text = "Bebe (Sample Contact #1)";
             label3.TextAlign = ContentAlignment.MiddleCenter;
-            //label3.Click += label3_Click_2;
             // 
             // pictureBox5
             // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Image = Properties.Resources.GruPFP;
             pictureBox5.Location = new Point(0, 404);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(95, 95);
@@ -294,7 +290,7 @@ namespace RoomMate_WinFormsApp
             // 
             // pictureBox6
             // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Image = Properties.Resources.FantaPFP;
             pictureBox6.Location = new Point(0, 303);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(95, 95);
@@ -303,7 +299,7 @@ namespace RoomMate_WinFormsApp
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Image = Properties.Resources.ChickenPFP;
             pictureBox4.Location = new Point(0, 202);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(95, 95);
@@ -312,7 +308,7 @@ namespace RoomMate_WinFormsApp
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Image = Properties.Resources.CaseohPFP;
             pictureBox3.Location = new Point(0, 101);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(95, 95);
@@ -321,7 +317,7 @@ namespace RoomMate_WinFormsApp
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Image = Properties.Resources.BebePFP;
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(95, 95);
@@ -336,9 +332,8 @@ namespace RoomMate_WinFormsApp
             richTextBox1.TabIndex = 15;
             richTextBox1.Text = "";
             richTextBox1.Visible = false;
-            //richTextBox1.Click += clickOffTextBox;
-            //richTextBox1.TextChanged += richTextBox1_TextChanged;
-            //richTextBox1.Enter += clickOffTextBox;
+            richTextBox1.Click += hideRichTextBox;
+            richTextBox1.Enter += hideRichTextBox;
             // 
             // panel6
             // 
@@ -350,7 +345,7 @@ namespace RoomMate_WinFormsApp
             panel6.Name = "panel6";
             panel6.Size = new Size(839, 95);
             panel6.TabIndex = 8;
-            //panel6.Click += messagePanelClick;
+            panel6.Click += messagePanelClick;
             // 
             // label12
             // 
@@ -363,7 +358,7 @@ namespace RoomMate_WinFormsApp
             label12.TabIndex = 13;
             label12.Text = "Message preview...";
             label12.TextAlign = ContentAlignment.MiddleCenter;
-            //label12.Click += messagePanelClick;
+            label12.Click += messagePanelClick;
             // 
             // panel5
             // 
@@ -375,7 +370,7 @@ namespace RoomMate_WinFormsApp
             panel5.Name = "panel5";
             panel5.Size = new Size(839, 95);
             panel5.TabIndex = 7;
-            //panel5.Click += messagePanelClick;
+            panel5.Click += messagePanelClick;
             // 
             // label11
             // 
@@ -388,7 +383,7 @@ namespace RoomMate_WinFormsApp
             label11.TabIndex = 12;
             label11.Text = "Message preview...";
             label11.TextAlign = ContentAlignment.MiddleCenter;
-            //label11.Click += messagePanelClick;
+            label11.Click += messagePanelClick;
             // 
             // panel4
             // 
@@ -400,8 +395,7 @@ namespace RoomMate_WinFormsApp
             panel4.Name = "panel4";
             panel4.Size = new Size(839, 95);
             panel4.TabIndex = 6;
-            //panel4.Click += messagePanelClick;
-            //panel4.Paint += panel4_Paint_1;
+            panel4.Click += messagePanelClick;
             // 
             // label10
             // 
@@ -414,7 +408,7 @@ namespace RoomMate_WinFormsApp
             label10.TabIndex = 11;
             label10.Text = "Message preview...";
             label10.TextAlign = ContentAlignment.MiddleCenter;
-            //label10.Click += messagePanelClick;
+            label10.Click += messagePanelClick;
             // 
             // panel3
             // 
@@ -426,7 +420,7 @@ namespace RoomMate_WinFormsApp
             panel3.Name = "panel3";
             panel3.Size = new Size(839, 95);
             panel3.TabIndex = 5;
-            //panel3.Click += messagePanelClick;
+            panel3.Click += messagePanelClick;
             // 
             // label9
             // 
@@ -439,7 +433,7 @@ namespace RoomMate_WinFormsApp
             label9.TabIndex = 10;
             label9.Text = "Message preview...";
             label9.TextAlign = ContentAlignment.MiddleCenter;
-            //label9.Click += messagePanelClick;
+            label9.Click += messagePanelClick;
             // 
             // panel7
             // 
@@ -451,7 +445,7 @@ namespace RoomMate_WinFormsApp
             panel7.Name = "panel7";
             panel7.Size = new Size(839, 95);
             panel7.TabIndex = 4;
-            //panel7.Click += messagePanelClick;
+            panel7.Click += messagePanelClick;
             // 
             // label8
             // 
@@ -464,7 +458,7 @@ namespace RoomMate_WinFormsApp
             label8.TabIndex = 9;
             label8.Text = "Message preview...";
             label8.TextAlign = ContentAlignment.MiddleCenter;
-            //label8.Click += messagePanelClick;
+            label8.Click += messagePanelClick;
             // 
             // imageList1
             // 
@@ -479,10 +473,8 @@ namespace RoomMate_WinFormsApp
             // 
             // notifyIcon1
             // 
-            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
-            //notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             // 
             // panel8
             // 
@@ -511,14 +503,14 @@ namespace RoomMate_WinFormsApp
             // button3
             // 
             button3.BackColor = Color.FromArgb(46, 51, 73);
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImage = Properties.Resources.notification;
             button3.ForeColor = Color.FromArgb(46, 51, 73);
             button3.Location = new Point(946, 0);
             button3.Name = "button3";
             button3.Size = new Size(80, 80);
             button3.TabIndex = 2;
             button3.UseVisualStyleBackColor = false;
-            //button3.Click += button1_Click;
+            button3.Click += notifClick;
             // 
             // label13
             // 
@@ -608,14 +600,14 @@ namespace RoomMate_WinFormsApp
             int nHeightEllipse
         );
 
-        //public messageDash()
-        //{
-        //    InitializeComponent();
-        //    Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+        public messageDash()
+        {
+            InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 
-        //    currentButton = btnDashboard;
-        //    ActivateButton(btnDashboard);
-        //}
+            currentButton = btnDashboard;
+            ActivateButton(btnDashboard);
+        }
 
         private void messageDash_Load(object sender, EventArgs e)
         {
@@ -669,6 +661,28 @@ namespace RoomMate_WinFormsApp
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnDashboard);
+        }
+
+        private void hideRichTextBox(object sender, EventArgs e)
+        {
+            richTextBox1.Visible = false;
+        }
+
+        private void notifClick(object sender, EventArgs e)
+        {
+            if (label14.Visible == true)
+            {
+                label14.Visible = false;
+            }
+            else
+            {
+                label14.Visible = true;
+            }
+        }
+
+        private void messagePanelClick(object sender, EventArgs e)
+        {
+            richTextBox1.Visible = true;
         }
 
         //private void btnMessages_Leave(object sender, EventArgs e)

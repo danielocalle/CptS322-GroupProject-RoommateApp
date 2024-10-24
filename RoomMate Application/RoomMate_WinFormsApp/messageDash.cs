@@ -12,9 +12,25 @@ namespace RoomMate_WinFormsApp
 {
     public partial class messageDash : Form
     {
-        public messageDash()
+        //public messageDash()
+        //{
+        //    InitializeComponent();
+        //}
+
+        private void button3_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+
         }
+        //private void notifClick(object sender, EventArgs e)
+        //{
+        //    if(label14.Visible == true)
+        //    {
+        //        label14.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        label14.Visible = true;
+        //    }
+        //}
     }
 }
