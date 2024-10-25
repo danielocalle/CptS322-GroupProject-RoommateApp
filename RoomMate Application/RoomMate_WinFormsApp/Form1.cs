@@ -61,7 +61,9 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
+            openMessages(sender, e);
             ProfilePanel.Visible = false;
+
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
@@ -122,6 +124,16 @@ namespace RoomMate_WinFormsApp
             Application.Exit();
         }
 
+        private void openMessages(object sender, EventArgs e)
+        {
+            var messageForm = new messageDash();
+            messageForm.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -298,7 +310,5 @@ namespace RoomMate_WinFormsApp
             
          
         }
-
-
     }
 }
