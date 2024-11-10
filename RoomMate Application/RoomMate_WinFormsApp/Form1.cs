@@ -130,145 +130,88 @@ namespace RoomMate_WinFormsApp
             messageForm.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void yesButtonHandler_Click(object sender, EventArgs e)
         {
+            Button yes = (Button)sender;
 
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProfilePanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Question3label_Click(object sender, EventArgs e)
-        {
-
+            switch (yes.Tag)
+            {
+                case "quiet":
+                    yesButton1.BackColor = Color.Green;
+                    noButton1.BackColor = default(Color);
+                    UserPreferences.isQuiet = true;
+                    break;
+                case "pets":
+                    yesButton2.BackColor = Color.Green;
+                    noButton2.BackColor = default(Color);
+                    UserPreferences.hasPets = true;
+                    break;
+                case "early":
+                    yesButton3.BackColor = Color.Green;
+                    noButton3.BackColor = default(Color);
+                    UserPreferences.earlyRiser = true;
+                    break;
+                case "late":
+                    yesButton4.BackColor = Color.Green;
+                    noButton4.BackColor = default(Color);
+                    UserPreferences.stayUpLate = true;
+                    break;
+                case "social":
+                    yesButton5.BackColor = Color.Green;
+                    noButton5.BackColor = default(Color);
+                    UserPreferences.spentTimeRoommate = true;
+                    break;
+                case "tidy":
+                    yesButton6.BackColor = Color.Green;
+                    noButton6.BackColor = default(Color);
+                    UserPreferences.CommonAreaTidy = true;
+                    break;
+                default:
+                    MessageBox.Show("Error", "Error", MessageBoxButtons.OK);
+                    break;
+            }
         }
 
-        // yes button to question 1
-        private void yesbutton1_Click(object sender, EventArgs e)
+        private void noButtonHandler_Click(object sender, EventArgs e)
         {
-            
-            yesButton1.BackColor = Color.Green;
-            noButton1.BackColor = default(Color);
-            UserPreferences.isQuiet = true;
-        }
+            Button no = (Button)sender;
 
-        // no button to question 1
-        private void nobutton1_Click(object sender, EventArgs e)
-        {
-            noButton1.BackColor = Color.Red;
-            yesButton1.BackColor = default(Color);
-            UserPreferences.isQuiet = false;
-        }
-
-        // yes button to question 2
-        private void yesButton2_Click(object sender, EventArgs e)
-        {
-            yesButton2.BackColor = Color.Green;
-            noButton2.BackColor = default(Color);
-            UserPreferences.hasPets = true; 
-        }
-
-        // no button to question 2
-        private void noButton2_Click(object sender, EventArgs e)
-        {
-            noButton2.BackColor = Color.Red;
-            yesButton2.BackColor = default(Color);
-            UserPreferences.hasPets = false;
-        }
-
-        // yes button to question 3
-        private void yesButton3_Click(object sender, EventArgs e)
-        {
-            yesButton3.BackColor = Color.Green;
-            noButton3.BackColor = default(Color);
-            UserPreferences.earlyRiser = true;
-        }
-
-        // no button to question 3
-        private void noButton3_Click(object sender, EventArgs e)
-        {
-            noButton3.BackColor = Color.Red;
-            yesButton3.BackColor = default(Color);
-            UserPreferences.earlyRiser = false;
-        }
-
-        // yes button to question 4
-        private void yesButton4_Click(object sender, EventArgs e)
-        {
-            yesButton4.BackColor = Color.Green;
-            noButton4.BackColor = default(Color);
-            UserPreferences.stayUpLate = true;
-        }
-
-        // no button to question 4
-        private void noButton4_Click(object sender, EventArgs e)
-        {
-            noButton4.BackColor = Color.Red;
-            yesButton4.BackColor = default(Color);
-            UserPreferences.stayUpLate = false;
-        }
-
-        // yes button to question 5
-        private void yesButton5_Click(object sender, EventArgs e)
-        {
-            yesButton5.BackColor = Color.Green;
-            noButton5.BackColor = default(Color);
-            UserPreferences.spentTimeRoommate = true;   
-        }
-
-        // no button to question 5
-        private void noButton5_Click(object sender, EventArgs e)
-        {
-            noButton5.BackColor = Color.Red;
-            yesButton5.BackColor = default(Color);
-            UserPreferences.spentTimeRoommate = false;
-        }
-
-        // yes button to question 6
-        private void yesButton6_Click(object sender, EventArgs e)
-        {
-            yesButton6.BackColor = Color.Green;
-            noButton6.BackColor = default(Color);
-            UserPreferences.CommonAreaTidy = true;
-        }
-
-        // no button to question 6
-        private void noButton6_Click(object sender, EventArgs e)
-        {
-            noButton6.BackColor = Color.Red;
-            yesButton6.BackColor = default(Color);
-            UserPreferences.CommonAreaTidy = false;
+            switch (no.Tag)
+            {
+                case "quiet":
+                    noButton1.BackColor = Color.Red;
+                    yesButton1.BackColor = default(Color);
+                    UserPreferences.isQuiet = false;
+                    break;
+                case "pets":
+                    noButton2.BackColor = Color.Red;
+                    yesButton2.BackColor = default(Color);
+                    UserPreferences.hasPets = false;
+                    break;
+                case "early":
+                    noButton3.BackColor = Color.Red;
+                    yesButton3.BackColor = default(Color);
+                    UserPreferences.earlyRiser = false;
+                    break;
+                case "late":
+                    noButton4.BackColor = Color.Red;
+                    yesButton4.BackColor = default(Color);
+                    UserPreferences.stayUpLate = false;
+                    break;
+                case "social":
+                    noButton5.BackColor = Color.Red;
+                    yesButton5.BackColor = default(Color);
+                    UserPreferences.spentTimeRoommate = false;
+                    break;
+                case "tidy":
+                    noButton6.BackColor = Color.Red;
+                    yesButton6.BackColor = default(Color);
+                    UserPreferences.CommonAreaTidy = false;
+                    break;
+                default:
+                    MessageBox.Show("Error", "Error", MessageBoxButtons.OK);
+                    break;
+            }
         }
 
         public bool AreAllQuestionsAnswered(Preferences preferences)
