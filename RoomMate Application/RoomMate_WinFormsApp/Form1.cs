@@ -8,24 +8,22 @@ namespace RoomMate_WinFormsApp
         private Button currentButton;
         private Preferences UserPreferences = new Preferences();
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
+        private AccountLoginInfo loggedInUser;
 
         public Form1()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             
             currentButton = btnDashboard;
             ActivateButton(btnDashboard);
             ProfilePanel.Visible = false;
+        }
+
+        public void PassAccountInfoFromLogin(AccountLoginInfo loginInfo)
+        {
+            this.loggedInUser = loginInfo;
+            this.label1.Text = loggedInUser.FirstName + " " + loggedInUser.LastName;
+            this.label2.Text = loggedInUser.Username;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -227,31 +225,15 @@ namespace RoomMate_WinFormsApp
         // set all the question buttons back to default
         private void savePrefbutton1_Click(object sender, EventArgs e)
         {
-
-
             if (AreAllQuestionsAnswered(UserPreferences))
             {
-                // testing if it updates
-                //MessageBox.Show("All questions have been answered. Preferences saved!");
-                //string savedPreferences = $"Question 1: {UserPreferences.isQuiet}\n" +
-                //                  $"Question 2: {UserPreferences.hasPets}\n" +
-                //                  $"Question 3: {UserPreferences.earlyRiser}\n" +
-                //                  $"Question 4: {UserPreferences.stayUpLate}\n" +
-                //                  $"Question 5: {UserPreferences.spentTimeRoommate}\n" +
-                //                  $"Question 6: {UserPreferences.CommonAreaTidy}";
-
-                //MessageBox.Show("Preferences saved!\n\n" + savedPreferences);
                 MessageBox.Show("All preferences have been saved!.");
-
+                // Save preferences here.
             }
             else
             {
-
                 MessageBox.Show("Please answer all questions before saving.");
-
             }
-            
-         
         }
     }
 }

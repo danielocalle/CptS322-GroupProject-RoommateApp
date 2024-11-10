@@ -36,7 +36,7 @@ namespace RoommateAppLibrary
             }
         }
 
-        public static bool VerifyLogin(AccountLoginInfo accountInfo)
+        public static bool VerifyLogin(ref AccountLoginInfo accountInfo)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -51,6 +51,7 @@ namespace RoommateAppLibrary
                 }
                 else
                 {
+                    accountInfo = output;
                     return true;
                 }
             }

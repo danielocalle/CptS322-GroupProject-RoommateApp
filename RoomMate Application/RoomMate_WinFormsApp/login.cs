@@ -13,7 +13,7 @@ namespace RoomMate_WinFormsApp
 {
     public partial class login : Form
     {
-        Form main;
+        Form1 main;
 
         public login()
         {
@@ -77,10 +77,11 @@ namespace RoomMate_WinFormsApp
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            if (SQLiteDataAccess.VerifyLogin(new AccountLoginInfo(usernametext.Text,
-                passwordtext.Text)))
+            AccountLoginInfo loginInfo = new AccountLoginInfo(usernametext.Text, passwordtext.Text);
+            if (SQLiteDataAccess.VerifyLogin(ref loginInfo))
             {
                 this.Hide();
+                main.PassAccountInfoFromLogin(loginInfo);
                 main.Show();
             }
             else
@@ -97,10 +98,14 @@ namespace RoomMate_WinFormsApp
                 MessageBox.Show("All Fields Must Be Answered", "Account Creation Unsuccessful", MessageBoxButtons.OK);
                 return;
             }
-            if (SQLiteDataAccess.CreateAccount(new AccountLoginInfo(usernameregistertext.Text,
-                passwordregistertext.Text, textBox4.Text, nametext.Text, lastnametext.Text)))
+
+            AccountLoginInfo loginInfo = new AccountLoginInfo(usernameregistertext.Text, passwordregistertext.Text,
+                textBox4.Text, nametext.Text, lastnametext.Text);
+
+            if (SQLiteDataAccess.CreateAccount(loginInfo))
             {
                 this.Hide();
+                main.PassAccountInfoFromLogin(loginInfo);
                 main.Show();
             }
             else
@@ -112,11 +117,6 @@ namespace RoomMate_WinFormsApp
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
