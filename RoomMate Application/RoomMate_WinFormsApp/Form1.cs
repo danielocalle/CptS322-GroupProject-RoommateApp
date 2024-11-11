@@ -243,6 +243,7 @@ namespace RoomMate_WinFormsApp
                 //MessageBox.Show("Preferences saved!\n\n" + savedPreferences);
                 MessageBox.Show("All preferences have been saved!.");
 
+
             }
             else
             {
