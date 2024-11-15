@@ -22,12 +22,14 @@ namespace RoommateAppLibrary
 
         }
 
-        //public int Evaluate(UserInfoWithInt mainUser, List<UserInfoWithInt> List)
-        //{
-        //    GetListofUsers();
-              
+        public int Evaluate(UserInfoWithInt mainUser, List<UserInfoWithInt> List)
+        {
+            //    GetListofUsers();
+            // still implementing this
+            int num = 0;
+            return num;
 
-        //}
+        }
 
 
     }
