@@ -9,13 +9,25 @@ namespace RoommateAppLibrary
     
     public class RoommateApp
     {
-        UserInfo userInfo;
-        Dictionary<string, UserInfo> users;
+        public UserInfo userInfo;
+        public RoommateApp app = new RoommateApp();
+        public List<UserInfoWithInt> userList = new List<UserInfoWithInt>();
+        
 
         // we're gonna have a static method evaluate that will deal with match points
 
+        public void GetListofUsers()
+        {
+            userList = SQLiteDataAccess.GetListofUsers();
 
+        }
 
+        //public int Evaluate(UserInfoWithInt mainUser, List<UserInfoWithInt> List)
+        //{
+        //    GetListofUsers();
+              
+
+        //}
 
 
     }

@@ -27,6 +27,9 @@ namespace RoommateAppLibrary
                     cnn.Execute("insert into LoginInfo " +
                         "(username, password, recovery, firstname, lastname) values " +
                         "(@Username, @Password, @Recovery, @FirstName, @LastName)", newAccountInfo);
+                    cnn.Execute("insert into UserInfo " +
+                        "(username, firstname, lastname) values " +
+                        "(@Username, @FirstName, @LastName)", newAccountInfo);
                     return true;
                 }
                 else
@@ -35,8 +38,38 @@ namespace RoommateAppLibrary
                 }
             }
         }
+        public static void SavePreferences(UserInfoWithInt user)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string preferences = user.User.prefs.ConvertPreferencesToString();
+                try
+                {
 
-        public static bool VerifyLogin(AccountLoginInfo accountInfo)
+                    cnn.Execute(
+                            "UPDATE UserInfo SET aboutme = @NewAboutme, preferences = @NewPref WHERE username = @Username",
+                            new { NewAboutme = user.User.prefs, NewPref = preferences, Username = user.User.account.Username });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("error:" + ex.ToString());
+                }
+
+            }
+
+        }
+
+        // function for getting list of users from the database
+        public static List<UserInfoWithInt> GetListofUsers()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<UserInfoWithInt>("select * from Username", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static bool VerifyLogin(ref AccountLoginInfo accountInfo)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -51,6 +84,7 @@ namespace RoommateAppLibrary
                 }
                 else
                 {
+                    accountInfo = output;
                     return true;
                 }
             }

@@ -8,25 +8,27 @@ namespace RoommateAppLibrary
 {
     public class UserInfo
     {
-        AccountLoginInfo username;
-        Preferences prefs;
-        string firstname;
-        string lastname;
-        string aboutMe;
+        public AccountLoginInfo account;
+        public Preferences prefs;
+        public string firstname;
+        public string lastname;
+        public string aboutMe;
 
-  
+
+
 
         // the users roommate info that we want to display
-        public UserInfo(AccountLoginInfo userName, Preferences Pref, string First, string Last, string Aboutme, string username)
-        {
-            this.username = userName;
 
-            this.prefs = Pref;  
-            this.firstname = First;
-            this.lastname = Last;
+        public UserInfo(AccountLoginInfo userName, Preferences Pref, string Aboutme)
+        {
+            this.account = userName;
+
+            this.prefs = Pref;
             this.aboutMe = Aboutme;
 
         }
+
+
         // will get the data from a database
 
         // i think with this we want to find the specific roommate and store it in the object and display it on the users page
