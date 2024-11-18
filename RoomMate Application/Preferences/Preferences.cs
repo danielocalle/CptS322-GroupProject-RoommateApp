@@ -2,11 +2,27 @@
 {
     public class Preferences
     {
-        public bool? isQuiet { get; set; }
-        public bool? hasPets { get; set; }
-        public bool? earlyRiser { get; set; }
-        public bool? stayUpLate { get; set; }
-        public bool? spentTimeRoommate { get; set; }
-        public bool? CommonAreaTidy { get; set; }
+        public bool isQuiet { get; set; }
+        public bool hasPets { get; set; }
+        public bool earlyRiser { get; set; }
+        public bool stayUpLate { get; set; }
+        public bool spentTimeRoommate { get; set; }
+        public bool CommonAreaTidy { get; set; }
+
+        public string ConvertPreferencesToString()
+        {
+            string preferences = (isQuiet) ? "1" : "0";
+            preferences += (hasPets) ? "1" : "0";
+            preferences += (earlyRiser) ? "1" : "0";
+            preferences += (stayUpLate) ? "1" : "0";
+            preferences += (spentTimeRoommate) ? "1" : "0";
+            preferences += (CommonAreaTidy) ? "1" : "0";
+
+            return preferences;
+
+
+
+        }
+
     }
 }
