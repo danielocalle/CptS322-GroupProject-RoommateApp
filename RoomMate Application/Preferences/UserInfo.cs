@@ -19,6 +19,7 @@ namespace RoommateAppLibrary
 
         // the users roommate info that we want to display
 
+        //public UserInfo() { }
         public UserInfo(AccountLoginInfo userName, Preferences Pref, string Aboutme)
         {
             this.account = userName;

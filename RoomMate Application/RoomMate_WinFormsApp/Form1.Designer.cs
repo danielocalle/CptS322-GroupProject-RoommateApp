@@ -69,10 +69,15 @@
             Question1label = new Label();
             AboutMelabel = new Label();
             textBox1 = new TextBox();
+            MatchesPanel1 = new Panel();
+            refreshList = new Button();
+            label3 = new Label();
+            listBox1 = new ListBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ProfilePanel.SuspendLayout();
+            MatchesPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -271,11 +276,13 @@
             ProfilePanel.Controls.Add(Question1label);
             ProfilePanel.Controls.Add(AboutMelabel);
             ProfilePanel.Controls.Add(textBox1);
-            ProfilePanel.Dock = DockStyle.Fill;
-            ProfilePanel.Location = new Point(213, 0);
+            ProfilePanel.Dock = DockStyle.Right;
+            ProfilePanel.Location = new Point(216, 0);
+            ProfilePanel.Margin = new Padding(0);
             ProfilePanel.Name = "ProfilePanel";
-            ProfilePanel.Size = new Size(874, 769);
+            ProfilePanel.Size = new Size(871, 769);
             ProfilePanel.TabIndex = 2;
+            ProfilePanel.Paint += ProfilePanel_Paint;
             // 
             // profilePageLabel
             // 
@@ -599,14 +606,56 @@
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
+            // MatchesPanel1
+            // 
+            MatchesPanel1.Controls.Add(refreshList);
+            MatchesPanel1.Controls.Add(label3);
+            MatchesPanel1.Controls.Add(listBox1);
+            MatchesPanel1.Dock = DockStyle.Fill;
+            MatchesPanel1.Location = new Point(0, 0);
+            MatchesPanel1.Name = "MatchesPanel1";
+            MatchesPanel1.Size = new Size(1087, 769);
+            MatchesPanel1.TabIndex = 28;
+            MatchesPanel1.Paint += MatchesPanel1_Paint;
+            // 
+            // refreshList
+            // 
+            refreshList.Location = new Point(730, 98);
+            refreshList.Name = "refreshList";
+            refreshList.Size = new Size(124, 70);
+            refreshList.TabIndex = 2;
+            refreshList.Text = "Refresh list";
+            refreshList.UseVisualStyleBackColor = true;
+            refreshList.Click += refreshList_Click;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 20F);
+            label3.Location = new Point(488, 103);
+            label3.Name = "label3";
+            label3.Size = new Size(236, 59);
+            label3.TabIndex = 1;
+            label3.Text = "list of user";
+            label3.Click += label3_Click;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(377, 171);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(477, 484);
+            listBox1.TabIndex = 0;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1087, 769);
-            Controls.Add(ProfilePanel);
             Controls.Add(panel1);
+            Controls.Add(ProfilePanel);
+            Controls.Add(MatchesPanel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             RightToLeft = RightToLeft.No;
@@ -619,6 +668,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ProfilePanel.ResumeLayout(false);
             ProfilePanel.PerformLayout();
+            MatchesPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -664,5 +714,9 @@
         private Button savePrefbutton1;
         private Label profilePageLabel;
         private Button noButton6;
+        private Panel MatchesPanel1;
+        private Label label3;
+        private ListBox listBox1;
+        private Button refreshList;
     }
 }

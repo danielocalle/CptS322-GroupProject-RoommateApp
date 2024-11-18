@@ -48,7 +48,7 @@ namespace RoommateAppLibrary
 
                     cnn.Execute(
                             "UPDATE UserInfo SET aboutme = @NewAboutme, preferences = @NewPref WHERE username = @Username",
-                            new { NewAboutme = user.User.prefs, NewPref = preferences, Username = user.User.account.Username });
+                            new { NewAboutme = user.User.aboutMe, NewPref = preferences, Username = user.User.account.Username });
                 }
                 catch (Exception ex)
                 {
@@ -59,15 +59,49 @@ namespace RoommateAppLibrary
 
         }
 
+
+
+
         // function for getting list of users from the database
-        public static List<UserInfoWithInt> GetListofUsers()
+        public static List<UserInfoWithInt> GetListOfUsers()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<UserInfoWithInt>("select * from Username", new DynamicParameters());
-                return output.ToList();
+                // Query to get user data
+                var query = "SELECT username, firstname, lastname, aboutme, preferences FROM UserInfo";
+                var userInfos = cnn.Query<dynamic>(query).ToList();
+
+                var userInfoWithIntList = userInfos.Select(row =>
+                {
+                    var account = new AccountLoginInfo(row.username, "placeholder", null, row.firstname, row.lastname); 
+                    var preferences = new Preferences
+                    {
+                        isQuiet = row.preferences[0] == '1',
+                        hasPets = row.preferences[1] == '1',
+                        earlyRiser = row.preferences[2] == '1',
+                        stayUpLate = row.preferences[3] == '1',
+                        spentTimeRoommate = row.preferences[4] == '1',
+                        CommonAreaTidy = row.preferences[5] == '1'
+                    };
+
+                    var userInfo = new UserInfo(account, preferences, row.aboutme)
+                    {
+                        firstname = row.firstname,
+                        lastname = row.lastname
+                    };
+
+                    int score = RoommateApp.CalculateScore(preferences); 
+                    return new UserInfoWithInt(userInfo, score);
+                }).ToList();
+
+                return userInfoWithIntList;
             }
         }
+
+        
+
+
+
 
         public static bool VerifyLogin(ref AccountLoginInfo accountInfo)
         {
