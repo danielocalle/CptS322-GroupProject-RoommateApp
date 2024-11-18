@@ -79,9 +79,8 @@
             mainpanel.Controls.Add(introlabel);
             mainpanel.Dock = DockStyle.Fill;
             mainpanel.Location = new Point(0, 0);
-            mainpanel.Margin = new Padding(2);
             mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(951, 577);
+            mainpanel.Size = new Size(1359, 962);
             mainpanel.TabIndex = 0;
             // 
             // registerbutton
@@ -91,10 +90,9 @@
             registerbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             registerbutton.BackColor = Color.White;
             registerbutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            registerbutton.Location = new Point(340, 438);
-            registerbutton.Margin = new Padding(2);
+            registerbutton.Location = new Point(486, 730);
             registerbutton.Name = "registerbutton";
-            registerbutton.Size = new Size(80, 30);
+            registerbutton.Size = new Size(113, 40);
             registerbutton.TabIndex = 7;
             registerbutton.Text = "Register";
             registerbutton.UseVisualStyleBackColor = false;
@@ -108,10 +106,9 @@
             forgotbutton.BackColor = Color.White;
             forgotbutton.FlatAppearance.BorderColor = Color.Black;
             forgotbutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            forgotbutton.Location = new Point(340, 356);
-            forgotbutton.Margin = new Padding(2);
+            forgotbutton.Location = new Point(486, 593);
             forgotbutton.Name = "forgotbutton";
-            forgotbutton.Size = new Size(146, 30);
+            forgotbutton.Size = new Size(207, 40);
             forgotbutton.TabIndex = 6;
             forgotbutton.Text = "Forgot password";
             forgotbutton.UseVisualStyleBackColor = false;
@@ -124,10 +121,9 @@
             loginbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             loginbutton.BackColor = Color.White;
             loginbutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            loginbutton.Location = new Point(550, 356);
-            loginbutton.Margin = new Padding(2);
+            loginbutton.Location = new Point(786, 593);
             loginbutton.Name = "loginbutton";
-            loginbutton.Size = new Size(61, 30);
+            loginbutton.Size = new Size(84, 40);
             loginbutton.TabIndex = 5;
             loginbutton.Text = "Login";
             loginbutton.UseVisualStyleBackColor = false;
@@ -138,11 +134,10 @@
             passwordtext.Anchor = AnchorStyles.None;
             passwordtext.BackColor = SystemColors.Window;
             passwordtext.Cursor = Cursors.IBeam;
-            passwordtext.Location = new Point(340, 288);
-            passwordtext.Margin = new Padding(2);
+            passwordtext.Location = new Point(486, 480);
             passwordtext.Name = "passwordtext";
             passwordtext.PasswordChar = '*';
-            passwordtext.Size = new Size(271, 23);
+            passwordtext.Size = new Size(385, 31);
             passwordtext.TabIndex = 4;
             // 
             // passwordlabel
@@ -150,10 +145,9 @@
             passwordlabel.Anchor = AnchorStyles.None;
             passwordlabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
             passwordlabel.ForeColor = SystemColors.ControlText;
-            passwordlabel.Location = new Point(340, 252);
-            passwordlabel.Margin = new Padding(2, 0, 2, 0);
+            passwordlabel.Location = new Point(486, 420);
             passwordlabel.Name = "passwordlabel";
-            passwordlabel.Size = new Size(175, 23);
+            passwordlabel.Size = new Size(250, 38);
             passwordlabel.TabIndex = 3;
             passwordlabel.Text = "Password:";
             // 
@@ -162,10 +156,9 @@
             usernametext.Anchor = AnchorStyles.None;
             usernametext.BackColor = SystemColors.Window;
             usernametext.Cursor = Cursors.IBeam;
-            usernametext.Location = new Point(340, 208);
-            usernametext.Margin = new Padding(2);
+            usernametext.Location = new Point(486, 347);
             usernametext.Name = "usernametext";
-            usernametext.Size = new Size(271, 23);
+            usernametext.Size = new Size(385, 31);
             usernametext.TabIndex = 2;
             // 
             // usernamelabel
@@ -173,10 +166,9 @@
             usernamelabel.Anchor = AnchorStyles.None;
             usernamelabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
             usernamelabel.ForeColor = SystemColors.ControlText;
-            usernamelabel.Location = new Point(340, 172);
-            usernamelabel.Margin = new Padding(2, 0, 2, 0);
+            usernamelabel.Location = new Point(486, 287);
             usernamelabel.Name = "usernamelabel";
-            usernamelabel.Size = new Size(175, 23);
+            usernamelabel.Size = new Size(250, 38);
             usernamelabel.TabIndex = 1;
             usernamelabel.Text = "Username:";
             // 
@@ -186,10 +178,9 @@
             introlabel.BackColor = Color.Transparent;
             introlabel.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             introlabel.ForeColor = SystemColors.ControlText;
-            introlabel.Location = new Point(202, 98);
-            introlabel.Margin = new Padding(2, 0, 2, 0);
+            introlabel.Location = new Point(289, 163);
             introlabel.Name = "introlabel";
-            introlabel.Size = new Size(560, 44);
+            introlabel.Size = new Size(800, 73);
             introlabel.TabIndex = 0;
             introlabel.Text = "Roommate Matching Application";
             introlabel.TextAlign = ContentAlignment.TopCenter;
@@ -212,9 +203,8 @@
             registerpanel.Controls.Add(label3);
             registerpanel.Dock = DockStyle.Fill;
             registerpanel.Location = new Point(0, 0);
-            registerpanel.Margin = new Padding(2);
             registerpanel.Name = "registerpanel";
-            registerpanel.Size = new Size(951, 577);
+            registerpanel.Size = new Size(1359, 962);
             registerpanel.TabIndex = 8;
             // 
             // backbutton
@@ -224,10 +214,9 @@
             backbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             backbutton.BackColor = Color.White;
             backbutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            backbutton.Location = new Point(558, 472);
-            backbutton.Margin = new Padding(2);
+            backbutton.Location = new Point(797, 787);
             backbutton.Name = "backbutton";
-            backbutton.Size = new Size(53, 30);
+            backbutton.Size = new Size(74, 40);
             backbutton.TabIndex = 22;
             backbutton.Text = "Back";
             backbutton.UseVisualStyleBackColor = false;
@@ -238,20 +227,18 @@
             textBox4.Anchor = AnchorStyles.None;
             textBox4.BackColor = SystemColors.Window;
             textBox4.Cursor = Cursors.IBeam;
-            textBox4.Location = new Point(340, 409);
-            textBox4.Margin = new Padding(2);
+            textBox4.Location = new Point(486, 682);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(271, 23);
+            textBox4.Size = new Size(385, 31);
             textBox4.TabIndex = 21;
             // 
             // recoverylabel
             // 
             recoverylabel.Anchor = AnchorStyles.None;
             recoverylabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            recoverylabel.Location = new Point(340, 377);
-            recoverylabel.Margin = new Padding(2, 0, 2, 0);
+            recoverylabel.Location = new Point(486, 628);
             recoverylabel.Name = "recoverylabel";
-            recoverylabel.Size = new Size(391, 23);
+            recoverylabel.Size = new Size(559, 38);
             recoverylabel.TabIndex = 20;
             recoverylabel.Text = "What was the name of your first pet:";
             // 
@@ -260,20 +247,18 @@
             passwordregistertext.Anchor = AnchorStyles.None;
             passwordregistertext.BackColor = SystemColors.Window;
             passwordregistertext.Cursor = Cursors.IBeam;
-            passwordregistertext.Location = new Point(340, 344);
-            passwordregistertext.Margin = new Padding(2);
+            passwordregistertext.Location = new Point(486, 573);
             passwordregistertext.Name = "passwordregistertext";
-            passwordregistertext.Size = new Size(271, 23);
+            passwordregistertext.Size = new Size(385, 31);
             passwordregistertext.TabIndex = 19;
             // 
             // newpasswordlabel
             // 
             newpasswordlabel.Anchor = AnchorStyles.None;
             newpasswordlabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            newpasswordlabel.Location = new Point(340, 311);
-            newpasswordlabel.Margin = new Padding(2, 0, 2, 0);
+            newpasswordlabel.Location = new Point(486, 518);
             newpasswordlabel.Name = "newpasswordlabel";
-            newpasswordlabel.Size = new Size(175, 23);
+            newpasswordlabel.Size = new Size(250, 38);
             newpasswordlabel.TabIndex = 18;
             newpasswordlabel.Text = "Password:";
             // 
@@ -282,20 +267,18 @@
             usernameregistertext.Anchor = AnchorStyles.None;
             usernameregistertext.BackColor = SystemColors.Window;
             usernameregistertext.Cursor = Cursors.IBeam;
-            usernameregistertext.Location = new Point(340, 281);
-            usernameregistertext.Margin = new Padding(2);
+            usernameregistertext.Location = new Point(486, 468);
             usernameregistertext.Name = "usernameregistertext";
-            usernameregistertext.Size = new Size(271, 23);
+            usernameregistertext.Size = new Size(385, 31);
             usernameregistertext.TabIndex = 17;
             // 
             // usernameregister
             // 
             usernameregister.Anchor = AnchorStyles.None;
             usernameregister.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            usernameregister.Location = new Point(340, 251);
-            usernameregister.Margin = new Padding(2, 0, 2, 0);
+            usernameregister.Location = new Point(486, 418);
             usernameregister.Name = "usernameregister";
-            usernameregister.Size = new Size(175, 23);
+            usernameregister.Size = new Size(250, 38);
             usernameregister.TabIndex = 16;
             usernameregister.Text = "Username:";
             // 
@@ -306,10 +289,9 @@
             createaccbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             createaccbutton.BackColor = Color.White;
             createaccbutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createaccbutton.Location = new Point(340, 472);
-            createaccbutton.Margin = new Padding(2);
+            createaccbutton.Location = new Point(486, 787);
             createaccbutton.Name = "createaccbutton";
-            createaccbutton.Size = new Size(80, 30);
+            createaccbutton.Size = new Size(113, 40);
             createaccbutton.TabIndex = 15;
             createaccbutton.Text = "Register";
             createaccbutton.UseVisualStyleBackColor = false;
@@ -320,20 +302,18 @@
             lastnametext.Anchor = AnchorStyles.None;
             lastnametext.BackColor = SystemColors.Window;
             lastnametext.Cursor = Cursors.IBeam;
-            lastnametext.Location = new Point(340, 216);
-            lastnametext.Margin = new Padding(2);
+            lastnametext.Location = new Point(486, 360);
             lastnametext.Name = "lastnametext";
-            lastnametext.Size = new Size(271, 23);
+            lastnametext.Size = new Size(385, 31);
             lastnametext.TabIndex = 12;
             // 
             // lastnamelabel
             // 
             lastnamelabel.Anchor = AnchorStyles.None;
             lastnamelabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            lastnamelabel.Location = new Point(340, 183);
-            lastnamelabel.Margin = new Padding(2, 0, 2, 0);
+            lastnamelabel.Location = new Point(486, 305);
             lastnamelabel.Name = "lastnamelabel";
-            lastnamelabel.Size = new Size(175, 23);
+            lastnamelabel.Size = new Size(250, 38);
             lastnamelabel.TabIndex = 11;
             lastnamelabel.Text = "Last name:";
             // 
@@ -342,20 +322,18 @@
             nametext.Anchor = AnchorStyles.None;
             nametext.BackColor = SystemColors.Window;
             nametext.Cursor = Cursors.IBeam;
-            nametext.Location = new Point(340, 153);
-            nametext.Margin = new Padding(2);
+            nametext.Location = new Point(486, 255);
             nametext.Name = "nametext";
-            nametext.Size = new Size(271, 23);
+            nametext.Size = new Size(385, 31);
             nametext.TabIndex = 10;
             // 
             // namelabel
             // 
             namelabel.Anchor = AnchorStyles.None;
             namelabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            namelabel.Location = new Point(340, 123);
-            namelabel.Margin = new Padding(2, 0, 2, 0);
+            namelabel.Location = new Point(486, 205);
             namelabel.Name = "namelabel";
-            namelabel.Size = new Size(175, 23);
+            namelabel.Size = new Size(250, 38);
             namelabel.TabIndex = 9;
             namelabel.Text = "First name:";
             // 
@@ -363,10 +341,9 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(193, 53);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(276, 88);
             label3.Name = "label3";
-            label3.Size = new Size(560, 45);
+            label3.Size = new Size(800, 75);
             label3.TabIndex = 8;
             label3.Text = "Register";
             label3.TextAlign = ContentAlignment.TopCenter;
@@ -385,9 +362,8 @@
             forgotpasswordpanel.Controls.Add(label4);
             forgotpasswordpanel.Dock = DockStyle.Fill;
             forgotpasswordpanel.Location = new Point(0, 0);
-            forgotpasswordpanel.Margin = new Padding(2);
             forgotpasswordpanel.Name = "forgotpasswordpanel";
-            forgotpasswordpanel.Size = new Size(951, 577);
+            forgotpasswordpanel.Size = new Size(1359, 962);
             forgotpasswordpanel.TabIndex = 8;
             // 
             // textBox2
@@ -395,20 +371,18 @@
             textBox2.Anchor = AnchorStyles.None;
             textBox2.BackColor = SystemColors.Window;
             textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(325, 331);
-            textBox2.Margin = new Padding(2);
+            textBox2.Location = new Point(464, 552);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(304, 23);
+            textBox2.Size = new Size(433, 31);
             textBox2.TabIndex = 15;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            label2.Location = new Point(325, 301);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(464, 502);
             label2.Name = "label2";
-            label2.Size = new Size(175, 23);
+            label2.Size = new Size(250, 38);
             label2.TabIndex = 14;
             label2.Text = "New password:";
             // 
@@ -419,10 +393,9 @@
             backbuttonforgot.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             backbuttonforgot.BackColor = Color.White;
             backbuttonforgot.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            backbuttonforgot.Location = new Point(576, 403);
-            backbuttonforgot.Margin = new Padding(2);
+            backbuttonforgot.Location = new Point(823, 672);
             backbuttonforgot.Name = "backbuttonforgot";
-            backbuttonforgot.Size = new Size(53, 30);
+            backbuttonforgot.Size = new Size(74, 40);
             backbuttonforgot.TabIndex = 13;
             backbuttonforgot.Text = "Back";
             backbuttonforgot.UseVisualStyleBackColor = false;
@@ -436,10 +409,9 @@
             savebutton.BackColor = Color.White;
             savebutton.DialogResult = DialogResult.Cancel;
             savebutton.Font = new Font("Segoe UI Black", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            savebutton.Location = new Point(325, 402);
-            savebutton.Margin = new Padding(2);
+            savebutton.Location = new Point(464, 670);
             savebutton.Name = "savebutton";
-            savebutton.Size = new Size(53, 30);
+            savebutton.Size = new Size(73, 40);
             savebutton.TabIndex = 12;
             savebutton.Text = "Save";
             savebutton.UseVisualStyleBackColor = false;
@@ -450,20 +422,18 @@
             textBox1.Anchor = AnchorStyles.None;
             textBox1.BackColor = SystemColors.Window;
             textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(325, 269);
-            textBox1.Margin = new Padding(2);
+            textBox1.Location = new Point(464, 448);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(304, 23);
+            textBox1.Size = new Size(433, 31);
             textBox1.TabIndex = 11;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            label1.Location = new Point(325, 238);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(464, 397);
             label1.Name = "label1";
-            label1.Size = new Size(388, 23);
+            label1.Size = new Size(554, 38);
             label1.TabIndex = 10;
             label1.Text = "What was the name of your first pet?";
             // 
@@ -472,20 +442,18 @@
             forgotusernametext.Anchor = AnchorStyles.None;
             forgotusernametext.BackColor = SystemColors.Window;
             forgotusernametext.Cursor = Cursors.IBeam;
-            forgotusernametext.Location = new Point(325, 201);
-            forgotusernametext.Margin = new Padding(2);
+            forgotusernametext.Location = new Point(464, 335);
             forgotusernametext.Name = "forgotusernametext";
-            forgotusernametext.Size = new Size(304, 23);
+            forgotusernametext.Size = new Size(433, 31);
             forgotusernametext.TabIndex = 9;
             // 
             // forgotusernamelabel
             // 
             forgotusernamelabel.Anchor = AnchorStyles.None;
             forgotusernamelabel.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold);
-            forgotusernamelabel.Location = new Point(325, 172);
-            forgotusernamelabel.Margin = new Padding(2, 0, 2, 0);
+            forgotusernamelabel.Location = new Point(464, 287);
             forgotusernamelabel.Name = "forgotusernamelabel";
-            forgotusernamelabel.Size = new Size(175, 23);
+            forgotusernamelabel.Size = new Size(250, 38);
             forgotusernamelabel.TabIndex = 8;
             forgotusernamelabel.Text = "Username:";
             // 
@@ -493,24 +461,22 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(202, 104);
-            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Location = new Point(289, 173);
             label4.Name = "label4";
-            label4.Size = new Size(560, 47);
+            label4.Size = new Size(800, 78);
             label4.TabIndex = 7;
             label4.Text = "Change Password";
             label4.TextAlign = ContentAlignment.TopCenter;
             // 
             // login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(951, 577);
-            Controls.Add(forgotpasswordpanel);
+            ClientSize = new Size(1359, 962);
             Controls.Add(mainpanel);
             Controls.Add(registerpanel);
-            Margin = new Padding(2);
+            Controls.Add(forgotpasswordpanel);
             Name = "login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RoomMate Login Form";
