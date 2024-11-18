@@ -14,26 +14,43 @@ namespace RoommateAppLibrary
 
         // we're gonna have a static method evaluate that will deal with match points
 
-        public static int CalculateScore(Preferences preferences)
+        public static int CalculateScore(Preferences loggedInUserPreferences, Preferences otherUserPreferences)
         {
-            // Example scoring: count the number of true preferences
-            return (preferences.isQuiet ? 1 : 0) +
-                   (preferences.hasPets ? 1 : 0) +
-                   (preferences.earlyRiser ? 1 : 0) +
-                   (preferences.stayUpLate ? 1 : 0) +
-                   (preferences.spentTimeRoommate ? 1 : 0) +
-                   (preferences.CommonAreaTidy ? 1 : 0);
+            int score = 0;
+
+            if (loggedInUserPreferences.isQuiet == otherUserPreferences.isQuiet) score++;
+            if (loggedInUserPreferences.hasPets == otherUserPreferences.hasPets) score++;
+            if (loggedInUserPreferences.earlyRiser == otherUserPreferences.earlyRiser) score++;
+            if (loggedInUserPreferences.stayUpLate == otherUserPreferences.stayUpLate) score++;
+            if (loggedInUserPreferences.spentTimeRoommate == otherUserPreferences.spentTimeRoommate) score++;
+            if (loggedInUserPreferences.CommonAreaTidy == otherUserPreferences.CommonAreaTidy) score++;
+
+            return score;
         }
 
         public static List<UserInfoWithInt> RankUsers(List<UserInfoWithInt> users, string loggedInUsername)
         {
-            // Exclude the logged-in user
-            var filteredUsers = users
+            // Get the logged-in user's preferences
+            var loggedInUser = users.FirstOrDefault(user => user.User.account.Username == loggedInUsername);
+            if (loggedInUser == null) throw new ArgumentException("Logged-in user not found.");
+
+            var loggedInPreferences = loggedInUser.User.prefs;
+
+            // Calculate scores for all other users and exclude the logged-in user
+            foreach (var user in users)
+            {
+                if (user.User.account.Username != loggedInUsername)
+                {
+                    user.Score = CalculateScore(loggedInPreferences, user.User.prefs);
+                }
+            }
+
+            // Return the ranked list of users, sorted by score in descending order
+            return users
                 .Where(user => user.User.account.Username != loggedInUsername)
                 .OrderByDescending(user => user.Score)
                 .ToList();
 
-            return filteredUsers;
         }
 
        

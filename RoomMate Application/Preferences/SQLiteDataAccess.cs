@@ -90,8 +90,8 @@ namespace RoommateAppLibrary
                         lastname = row.lastname
                     };
 
-                    int score = RoommateApp.CalculateScore(preferences); 
-                    return new UserInfoWithInt(userInfo, score);
+                    
+                    return new UserInfoWithInt(userInfo, 0);
                 }).ToList();
 
                 return userInfoWithIntList;
