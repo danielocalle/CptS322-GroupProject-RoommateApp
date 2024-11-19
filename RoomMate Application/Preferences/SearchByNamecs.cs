@@ -41,7 +41,7 @@ namespace RoomMateAppLibrary
 
     class Program //this would be wherever we use it to search
     {
-        static void Mani(string[] args)
+        static void Main(string[] args)
         {
             RooommateSearch search = new RooommateSearch();
 

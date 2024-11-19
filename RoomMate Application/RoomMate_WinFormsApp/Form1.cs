@@ -58,34 +58,25 @@ namespace RoomMate_WinFormsApp
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(btnDashboard);
-            
         }
 
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
-            openMessages(sender, e);
-            ProfilePanel.Visible = false;
-
+            // This is where you will swap to message panel when we have one.
+            // ShowPanel(messagePanel);
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
         {
-            
             ActivateButton(btnMatches);
             ShowPanel(MatchesPanel1);
-
-
         }
 
-        // this is what im working on
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            
             ActivateButton(btnProfile);
             ShowPanel(ProfilePanel);
-            
-
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -102,20 +93,16 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnMessages);
-
         }
 
         private void btnMatches_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnMatches);
-            //MatchesPanel1.Visible = false;
-
         }
 
         private void btnProfile_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnProfile);
-            //ProfilePanel.Visible = false;
         }
 
         private void btnSettings_Leave(object sender, EventArgs e)
@@ -134,21 +121,13 @@ namespace RoomMate_WinFormsApp
             ProfilePanel.Visible = false;
             MatchesPanel1.Visible = false;
 
-
             // display the chosen panel
             displayThisPanel.Visible = true;
-
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void openMessages(object sender, EventArgs e)
-        {
-            var messageForm = new messageDash();
-            messageForm.Show();
         }
 
         private void yesButtonHandler_Click(object sender, EventArgs e)
@@ -257,8 +236,6 @@ namespace RoomMate_WinFormsApp
                 // these bottom function get the list of users in the database then rank them
                 //List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
                 //List<UserInfoWithInt> rankingUsers = RoommateApp.RankUsers(allUsers, loggedInUser.Username);
-
-
             }
             else
             {
@@ -285,43 +262,11 @@ namespace RoomMate_WinFormsApp
                 listBox.Items.Add(displayText);
                 rank++;
             }
-
-
-
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProfilePanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
         }
 
         private void refreshList_Click(object sender, EventArgs e)
         {
             DisplayRankedUsers(loggedInUser.Username, listBox1);
-
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MatchesPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
