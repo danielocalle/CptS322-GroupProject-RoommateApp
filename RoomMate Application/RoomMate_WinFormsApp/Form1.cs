@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 using RoommateAppLibrary;
 
 namespace RoomMate_WinFormsApp
@@ -7,25 +10,24 @@ namespace RoomMate_WinFormsApp
     {
         private Button currentButton;
         private Preferences UserPreferences = new Preferences();
+        List<UserInfoWithInt> rankingUsers = new List<UserInfoWithInt>();
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
+        private AccountLoginInfo loggedInUser;
 
         public Form1()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            
+
             currentButton = btnDashboard;
             ActivateButton(btnDashboard);
             ProfilePanel.Visible = false;
+        }
+
+        public void PassAccountInfoFromLogin(AccountLoginInfo loginInfo)
+        {
+            this.loggedInUser = loginInfo;
+            this.label1.Text = loggedInUser.FirstName + " " + loggedInUser.LastName;
+            this.label2.Text = loggedInUser.Username;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace RoomMate_WinFormsApp
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(btnDashboard);
-            ProfilePanel.Visible = false;
+            
         }
 
         private void btnMessages_Click(object sender, EventArgs e)
@@ -68,17 +70,21 @@ namespace RoomMate_WinFormsApp
 
         private void btnMatches_Click(object sender, EventArgs e)
         {
+            
             ActivateButton(btnMatches);
-            ProfilePanel.Visible = false;
+            ShowPanel(MatchesPanel1);
+
 
         }
 
         // this is what im working on
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            ProfilePanel.Visible = true;
-            ActivateButton(btnProfile);
             
+            ActivateButton(btnProfile);
+            ShowPanel(ProfilePanel);
+            
+
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -95,18 +101,20 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnMessages);
+
         }
 
         private void btnMatches_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnMatches);
+            //MatchesPanel1.Visible = false;
 
         }
 
         private void btnProfile_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnProfile);
-            // ProfilePanel.Visible = false;
+            //ProfilePanel.Visible = false;
         }
 
         private void btnSettings_Leave(object sender, EventArgs e)
@@ -118,7 +126,19 @@ namespace RoomMate_WinFormsApp
         {
             this.Close();
         }
-        
+
+        private void ShowPanel(Panel displayThisPanel)
+        {
+            // hide all other panels
+            ProfilePanel.Visible = false;
+            MatchesPanel1.Visible = false;
+
+
+            // display the chosen panel
+            displayThisPanel.Visible = true;
+
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -227,31 +247,80 @@ namespace RoomMate_WinFormsApp
         // set all the question buttons back to default
         private void savePrefbutton1_Click(object sender, EventArgs e)
         {
-
-
             if (AreAllQuestionsAnswered(UserPreferences))
             {
-                // testing if it updates
-                //MessageBox.Show("All questions have been answered. Preferences saved!");
-                //string savedPreferences = $"Question 1: {UserPreferences.isQuiet}\n" +
-                //                  $"Question 2: {UserPreferences.hasPets}\n" +
-                //                  $"Question 3: {UserPreferences.earlyRiser}\n" +
-                //                  $"Question 4: {UserPreferences.stayUpLate}\n" +
-                //                  $"Question 5: {UserPreferences.spentTimeRoommate}\n" +
-                //                  $"Question 6: {UserPreferences.CommonAreaTidy}";
-
-                //MessageBox.Show("Preferences saved!\n\n" + savedPreferences);
                 MessageBox.Show("All preferences have been saved!.");
+                UserInfo userPref = new UserInfo(loggedInUser, UserPreferences, textBox1.Text);
+                UserInfoWithInt user = new(userPref, 0);
+                SQLiteDataAccess.SavePreferences(user);
+                // these bottom function get the list of users in the database then rank them
+                //List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
+                //List<UserInfoWithInt> rankingUsers = RoommateApp.RankUsers(allUsers, loggedInUser.Username);
+
 
             }
             else
             {
-
                 MessageBox.Show("Please answer all questions before saving.");
-
             }
-            
-         
+        }
+
+        public static void DisplayRankedUsers(string loggedInUsername, ListBox listBox)
+        {
+            // Get the list of all users
+            List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
+
+            // Rank users  excludes the loggin in user
+            List<UserInfoWithInt> rankedUsers = RoommateApp.RankUsers(allUsers, loggedInUsername);
+
+            // Clear the ListBox
+            listBox.Items.Clear();
+
+            // Add each user to the ListBox
+            int rank = 1;
+            foreach (var user in rankedUsers)
+            {
+                string displayText = $"{rank}. {user.User.firstname} {user.User.lastname} - Score: {user.Score}";
+                listBox.Items.Add(displayText);
+                rank++;
+            }
+
+
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProfilePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void refreshList_Click(object sender, EventArgs e)
+        {
+            DisplayRankedUsers(loggedInUser.Username, listBox1);
+
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MatchesPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
