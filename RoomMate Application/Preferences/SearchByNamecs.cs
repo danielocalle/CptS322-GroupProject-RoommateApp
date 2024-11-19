@@ -36,10 +36,9 @@ namespace RoomMateAppLibrary
             {
                 Console.WriteLine("No roommate found with that name:");
             }
-
         }
-
     }
+
     class Program //this would be wherever we use it to search
     {
         static void Mani(string[] args)
@@ -52,8 +51,4 @@ namespace RoomMateAppLibrary
             search.SearchByName(name);
         }
     }
-
-
-
-
 }
