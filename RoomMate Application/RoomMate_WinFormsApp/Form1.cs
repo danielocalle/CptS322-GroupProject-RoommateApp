@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -14,14 +15,23 @@ namespace RoomMate_WinFormsApp
 
         private AccountLoginInfo loggedInUser;
 
+        private List<string> messagedUsers;
+        private Dictionary<string, string> messageHistory;
+
         public Form1()
         {
             InitializeComponent();
+
+            // Testing stuff
+            messagedUsers = ["Jimmy John", "Bobby Boy"];
+            messageHistory = new Dictionary<string, string>();
+            InitializeMessagePageDemo();
 
             currentButton = btnDashboard;
             ActivateButton(btnDashboard);
             ProfilePanel.Visible = false;
             MatchesPanel1.Visible = false;
+            testMessagePanel.Visible = false;
         }
 
         public void PassAccountInfoFromLogin(AccountLoginInfo loginInfo)
@@ -29,6 +39,37 @@ namespace RoomMate_WinFormsApp
             this.loggedInUser = loginInfo;
             this.label1.Text = loggedInUser.FirstName + " " + loggedInUser.LastName;
             this.label2.Text = loggedInUser.Username;
+        }
+
+        private void InitializeMessagePageDemo()
+        {
+            foreach(var user in messagedUsers)
+            {
+                testMessageList.Items.Add(user);
+                messageHistory[user] = string.Empty;
+            }
+        }
+
+        private void testMessageSendBtn_Click(object sender, EventArgs e)
+        {
+            string newMessage = testMessageTextBox.Text;
+            if (messageHistory[messagedUsers[testMessageList.SelectedIndex]] == string.Empty)
+            {
+                testMessageHistoryText.AppendText(loggedInUser.Username + ": " + newMessage);
+                messageHistory[messagedUsers[testMessageList.SelectedIndex]] += loggedInUser.Username + ": " + newMessage;
+            }
+            else
+            {
+                testMessageHistoryText.AppendText("\n" + loggedInUser.Username + ": " + newMessage);
+                messageHistory[messagedUsers[testMessageList.SelectedIndex]] += "\n" + loggedInUser.Username + ": " + newMessage;
+            }
+            testMessageTextBox.Clear();
+        }
+
+        private void testMessageList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            testMessageHistoryText.Text = messageHistory[messagedUsers[testMessageList.SelectedIndex]];
+            testMessageTextBox.Clear();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -63,8 +104,7 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
-            // This is where you will swap to message panel when we have one.
-            // ShowPanel(messagePanel);
+            ShowPanel(testMessagePanel);
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
@@ -120,6 +160,7 @@ namespace RoomMate_WinFormsApp
             // hide all other panels
             ProfilePanel.Visible = false;
             MatchesPanel1.Visible = false;
+            testMessagePanel.Visible = false;
 
             // display the chosen panel
             displayThisPanel.Visible = true;

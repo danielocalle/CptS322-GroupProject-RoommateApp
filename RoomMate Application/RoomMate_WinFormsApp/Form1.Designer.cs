@@ -74,12 +74,19 @@
             label3 = new Label();
             listBox1 = new ListBox();
             rightPanel = new Panel();
+            testMessagePanel = new Panel();
+            testMessageHistoryText = new RichTextBox();
+            testMessageSendBtn = new Button();
+            testMessageTextBox = new TextBox();
+            testMessageList = new ListBox();
+            testMessagePanelLabel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ProfilePanel.SuspendLayout();
             MatchesPanel1.SuspendLayout();
             rightPanel.SuspendLayout();
+            testMessagePanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -655,13 +662,74 @@
             // 
             // rightPanel
             // 
-            rightPanel.Controls.Add(MatchesPanel1);
+            rightPanel.Controls.Add(testMessagePanel);
             rightPanel.Controls.Add(ProfilePanel);
+            rightPanel.Controls.Add(MatchesPanel1);
             rightPanel.Dock = DockStyle.Right;
             rightPanel.Location = new Point(192, 0);
             rightPanel.Name = "rightPanel";
             rightPanel.Size = new Size(759, 577);
             rightPanel.TabIndex = 29;
+            // 
+            // testMessagePanel
+            // 
+            testMessagePanel.Controls.Add(testMessageHistoryText);
+            testMessagePanel.Controls.Add(testMessageSendBtn);
+            testMessagePanel.Controls.Add(testMessageTextBox);
+            testMessagePanel.Controls.Add(testMessageList);
+            testMessagePanel.Controls.Add(testMessagePanelLabel);
+            testMessagePanel.Dock = DockStyle.Fill;
+            testMessagePanel.Location = new Point(0, 0);
+            testMessagePanel.Name = "testMessagePanel";
+            testMessagePanel.Size = new Size(759, 577);
+            testMessagePanel.TabIndex = 30;
+            // 
+            // testMessageHistoryText
+            // 
+            testMessageHistoryText.Location = new Point(209, 110);
+            testMessageHistoryText.Name = "testMessageHistoryText";
+            testMessageHistoryText.ReadOnly = true;
+            testMessageHistoryText.Size = new Size(514, 346);
+            testMessageHistoryText.TabIndex = 32;
+            testMessageHistoryText.Text = "";
+            // 
+            // testMessageSendBtn
+            // 
+            testMessageSendBtn.Location = new Point(648, 495);
+            testMessageSendBtn.Name = "testMessageSendBtn";
+            testMessageSendBtn.Size = new Size(75, 53);
+            testMessageSendBtn.TabIndex = 31;
+            testMessageSendBtn.Text = "Send";
+            testMessageSendBtn.UseVisualStyleBackColor = true;
+            testMessageSendBtn.Click += testMessageSendBtn_Click;
+            // 
+            // testMessageTextBox
+            // 
+            testMessageTextBox.Location = new Point(209, 495);
+            testMessageTextBox.Multiline = true;
+            testMessageTextBox.Name = "testMessageTextBox";
+            testMessageTextBox.Size = new Size(419, 53);
+            testMessageTextBox.TabIndex = 30;
+            // 
+            // testMessageList
+            // 
+            testMessageList.FormattingEnabled = true;
+            testMessageList.ItemHeight = 15;
+            testMessageList.Location = new Point(29, 109);
+            testMessageList.Name = "testMessageList";
+            testMessageList.Size = new Size(159, 439);
+            testMessageList.TabIndex = 29;
+            testMessageList.SelectedIndexChanged += testMessageList_SelectedIndexChanged;
+            // 
+            // testMessagePanelLabel
+            // 
+            testMessagePanelLabel.Font = new Font("Segoe UI", 22F);
+            testMessagePanelLabel.ForeColor = SystemColors.Control;
+            testMessagePanelLabel.Location = new Point(29, 29);
+            testMessagePanelLabel.Name = "testMessagePanelLabel";
+            testMessagePanelLabel.Size = new Size(203, 56);
+            testMessagePanelLabel.TabIndex = 28;
+            testMessagePanelLabel.Text = "Messages";
             // 
             // Form1
             // 
@@ -684,6 +752,8 @@
             ProfilePanel.PerformLayout();
             MatchesPanel1.ResumeLayout(false);
             rightPanel.ResumeLayout(false);
+            testMessagePanel.ResumeLayout(false);
+            testMessagePanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -734,5 +804,11 @@
         private ListBox listBox1;
         private Button refreshList;
         private Panel rightPanel;
+        private Panel testMessagePanel;
+        private TextBox testMessageTextBox;
+        private ListBox testMessageList;
+        private Label testMessagePanelLabel;
+        private Button testMessageSendBtn;
+        private RichTextBox testMessageHistoryText;
     }
 }
