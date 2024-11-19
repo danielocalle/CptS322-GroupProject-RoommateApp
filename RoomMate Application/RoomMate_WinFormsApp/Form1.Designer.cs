@@ -275,7 +275,6 @@
             ProfilePanel.Name = "ProfilePanel";
             ProfilePanel.Size = new Size(759, 577);
             ProfilePanel.TabIndex = 2;
-            ProfilePanel.Paint += ProfilePanel_Paint;
             // 
             // profilePageLabel
             // 
@@ -611,7 +610,6 @@
             textBox1.PlaceholderText = "Write something about yourself...";
             textBox1.Size = new Size(316, 388);
             textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // MatchesPanel1
             // 
@@ -624,7 +622,6 @@
             MatchesPanel1.Name = "MatchesPanel1";
             MatchesPanel1.Size = new Size(759, 577);
             MatchesPanel1.TabIndex = 28;
-            MatchesPanel1.Paint += MatchesPanel1_Paint;
             // 
             // refreshList
             // 
@@ -645,7 +642,6 @@
             label3.Size = new Size(206, 44);
             label3.TabIndex = 1;
             label3.Text = "list of user";
-            label3.Click += label3_Click;
             // 
             // listBox1
             // 
@@ -656,7 +652,6 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(418, 364);
             listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // rightPanel
             // 
