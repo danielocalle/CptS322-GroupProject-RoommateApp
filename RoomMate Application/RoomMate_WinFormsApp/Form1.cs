@@ -63,8 +63,8 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
-            openMessages(sender, e);
-            ProfilePanel.Visible = false;
+            // This is where you will swap to message panel when we have one.
+            // ShowPanel(messagePanel);
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
@@ -73,7 +73,6 @@ namespace RoomMate_WinFormsApp
             ShowPanel(MatchesPanel1);
         }
 
-        // this is what im working on
         private void btnProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(btnProfile);
@@ -99,13 +98,11 @@ namespace RoomMate_WinFormsApp
         private void btnMatches_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnMatches);
-            //MatchesPanel1.Visible = false;
         }
 
         private void btnProfile_Leave(object sender, EventArgs e)
         {
             DeactivateButton(btnProfile);
-            //ProfilePanel.Visible = false;
         }
 
         private void btnSettings_Leave(object sender, EventArgs e)
@@ -131,12 +128,6 @@ namespace RoomMate_WinFormsApp
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void openMessages(object sender, EventArgs e)
-        {
-            var messageForm = new messageDash();
-            messageForm.Show();
         }
 
         private void yesButtonHandler_Click(object sender, EventArgs e)
