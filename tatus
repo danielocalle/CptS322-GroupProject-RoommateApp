@@ -1,0 +1,228 @@
+[33mcommit caf2fe15c917548a7aff1240c2133ea861196b82[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/matchHandler[m[33m, [m[1;31morigin/feature/matchHandler[m[33m)[m
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Tue Nov 19 11:15:59 2024 -0800
+
+    Update Program.cs
+
+[33mcommit e1660c69444d82f04d24dc13f9afbc7de5891101[m
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Tue Nov 19 11:15:02 2024 -0800
+
+    Delete RoomMate Application/RoomMate_WinFormsApp/Resources/MatchHandler.cs
+
+[33mcommit 9b4b6ccb7c034545beb96b2a1541a761b311f20e[m
+Author: Astera Tuhina <astera.tuhina@wsu.edu>
+Date:   Tue Nov 19 11:02:47 2024 -0800
+
+    Resolved merge conflict in Program.cs and added MatchHandler.cs
+
+[33mcommit e707763d2eb621aef6260d57447b30dfbdcbe14b[m
+Author: Astera Tuhina <astera.tuhina@wsu.edu>
+Date:   Tue Nov 19 10:53:43 2024 -0800
+
+    Match Handler feature
+
+[33mcommit 2ea99b1a91eacc64df3a1b4962da2efcdeb04324[m
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Thu Oct 24 22:22:51 2024 -0700
+
+    Create sprint_report.md
+
+[33mcommit df22492a6f9f16528af4f1cd444c2adb3bde4ef0[m
+Merge: 3a6e453 cd809ac
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Thu Oct 24 18:09:41 2024 -0700
+
+    Merge pull request #26 from danielocalle/feature/messagePage
+    
+    Feature/message page
+
+[33mcommit cd809acb61dbaabcc14135be8f72857516c38c2d[m
+Merge: 1546535 3a6e453
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Thu Oct 24 18:09:26 2024 -0700
+
+    Merge branch 'main' into feature/messagePage
+
+[33mcommit 3a6e4539bf05941c40fffd3763952264dd91cb03[m
+Merge: d054124 ba436a8
+Author: Panashedione211 <104041185+Panashedione211@users.noreply.github.com>
+Date:   Thu Oct 24 16:00:38 2024 -0700
+
+    Merge pull request #25 from danielocalle/feature/database_connection_for_login
+    
+    ADD: Database for login information.
+
+[33mcommit 1546535a2a2e2ba10196131f45294ec55a616eb6[m
+Author: JulesMessegee <121596873+JulesMessegee@users.noreply.github.com>
+Date:   Thu Oct 24 13:51:04 2024 -0700
+
+    added lost code and open from dash
+
+[33mcommit ba436a8c93e40861f54836b35655068df24d37d9[m[33m ([m[1;31morigin/feature/database_connection_for_login[m[33m)[m
+Author: Daniel Calle <daniel.calle@wsu.edu>
+Date:   Wed Oct 23 21:17:42 2024 -0700
+
+    ADD: Database for login information. This had been linked with the login page to allow for account creation and being able to login with that account even after closing the app and running it again.
+
+[33mcommit d05412405a1f7839274376536f336bcdae5516b7[m
+Author: Daniel Calle <daniel.calle@wsu.edu>
+Date:   Wed Oct 23 20:15:04 2024 -0700
+
+    Pulled from main, ran into issues and errors. Cleaned up errors really quick and now it should start up without issue.
+
+[33mcommit f7c9068b81ccd5080d7c59e9e5fc4b52a4675aab[m
+Merge: 182d6b5 3597dc3
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Wed Oct 23 19:31:38 2024 -0700
+
+    Merge pull request #23 from danielocalle/feature/profilePage
+    
+    Feature/profile page
+
+[33mcommit 3597dc3251aba3ea948fce4189b33dc6fa662d3c[m
+Merge: cc12c7d 182d6b5
+Author: Panashedione211 <104041185+Panashedione211@users.noreply.github.com>
+Date:   Wed Oct 23 17:23:22 2024 -0700
+
+    Merge branch 'main' into feature/profilePage
+
+[33mcommit cc12c7db635a16a80c70d2ebefe43a6d48421d58[m
+Author: Panashedione211 <PanasheDione211@gmail.com>
+Date:   Wed Oct 23 17:03:14 2024 -0700
+
+    deleted an unused references i made and fixed spacing
+
+[33mcommit af03f136b7161680929ccf2bf6662ed000b6b23a[m
+Author: Panashedione211 <PanasheDione211@gmail.com>
+Date:   Wed Oct 23 16:55:38 2024 -0700
+
+    fixing merge issues within the file
+
+[33mcommit afa4b14b6c85c5c1afdf86fd125ee3d258339cf4[m
+Author: Panashedione211 <PanasheDione211@gmail.com>
+Date:   Wed Oct 23 16:52:25 2024 -0700
+
+    the preferences are saved into an object and a messagebox will pop up if all questions are answered or not
+
+[33mcommit 2274b602a4d9a27575120cb0b7f3d1f35a817545[m
+Author: JulesMessegee <121596873+JulesMessegee@users.noreply.github.com>
+Date:   Wed Oct 23 00:17:13 2024 -0700
+
+    adding back all files
+
+[33mcommit f71a3c7378b0c257c5db4d8371fe60e23d301e2b[m
+Author: JulesMessegee <121596873+JulesMessegee@users.noreply.github.com>
+Date:   Tue Oct 22 23:52:10 2024 -0700
+
+    Re-adding only one file to message branch
+
+[33mcommit 182d6b5a3bf76c31ea8a1ab4040c7f1e19fd9fb2[m
+Merge: 371a74d ac51a41
+Author: Panashedione211 <104041185+Panashedione211@users.noreply.github.com>
+Date:   Mon Oct 21 23:06:24 2024 -0700
+
+    Merge pull request #18 from danielocalle/diagrams/deployementdiagram
+    
+    ADD: Deployment diagram with brief description.
+
+[33mcommit 371a74d59ada70d8b60bf29d2682e5ed0f46a18c[m
+Merge: c46579c cbe6b01
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Mon Oct 21 22:47:53 2024 -0700
+
+    Merge pull request #20 from danielocalle/component-diagram
+    
+    Add files via upload
+
+[33mcommit cbe6b013d17c437597c608a4c87c46add5607898[m
+Author: Panashedione211 <104041185+Panashedione211@users.noreply.github.com>
+Date:   Mon Oct 21 22:39:44 2024 -0700
+
+    Add files via upload
+    
+    let me know what yall think im pretty confident i hit all the points let me know if it flows well
+
+[33mcommit 064ba1149b571ffa0618b4ce43c2e647f18914f3[m
+Author: Panashedione211 <PanasheDione211@gmail.com>
+Date:   Sun Oct 20 21:57:46 2024 -0700
+
+    the preferences are saved into an object and a messagebox will pop up if all questions are answered or not
+
+[33mcommit c46579c7575c76271274583fb992f54743564a57[m
+Merge: 205fdb2 100f361
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Sun Oct 20 20:24:30 2024 -0700
+
+    Merge pull request #19 from danielocalle/feature/login
+    
+    Feature/login
+
+[33mcommit ac51a41d646d3a034d1cc5c398441038f95d637e[m
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Sun Oct 20 19:31:40 2024 -0700
+
+    Add files via upload
+
+[33mcommit 100f3616ce8c2041b49bff20008cb8bd80c53619[m
+Author: Astera Tuhina <astera.tuhina@wsu.edu>
+Date:   Sun Oct 20 17:01:49 2024 -0700
+
+    add: login connection to main form added
+
+[33mcommit e89d1a80b4a94c7d03bdcea6424340787d6e8dad[m
+Author: Astera Tuhina <astera.tuhina@wsu.edu>
+Date:   Sun Oct 20 16:49:01 2024 -0700
+
+    add: login form added
+
+[33mcommit a25eb128c7bd9430eb7c29bccc26640cc513cff0[m
+Author: Panashedione211 <PanasheDione211@gmail.com>
+Date:   Sun Oct 20 16:47:54 2024 -0700
+
+    the profile page ui is complete
+
+[33mcommit 205fdb2fa91068da087f9832d79d9e61923e39aa[m
+Merge: 2c7e2ff 75227fd
+Author: Panashedione211 <104041185+Panashedione211@users.noreply.github.com>
+Date:   Wed Oct 16 19:15:57 2024 -0700
+
+    Merge pull request #15 from danielocalle/ADD/StateDiagram
+    
+    ADD: State Diagram with brief description.
+
+[33mcommit 2c7e2ff98d64501a918ba2767875d0e3afa9549d[m
+Author: Daniel Calle <daniel.calle@wsu.edu>
+Date:   Wed Oct 16 19:09:36 2024 -0700
+
+    ADD: Random WinForms designer addition when I was messing with stuff.
+
+[33mcommit 54c6a901d8784b7cf28894244f88fc383a18a7e4[m
+Merge: 20433eb c4e0e67
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Wed Oct 16 18:35:24 2024 -0700
+
+    Merge pull request #16 from danielocalle/asteratuhina-patch-1
+    
+    ADD: Activity Diagram with Description
+
+[33mcommit c4e0e67d0706417d20fbb0b95497cf0b86bb41c1[m
+Author: asteratuhina <131110755+asteratuhina@users.noreply.github.com>
+Date:   Wed Oct 16 18:28:58 2024 -0700
+
+    Add files via upload
+
+[33mcommit 75227fd404f73815b545bd14326e0143bd5cde10[m
+Author: Daniel Calle <146589265+danielocalle@users.noreply.github.com>
+Date:   Wed Oct 16 14:23:57 2024 -0700
+
+    ADD: State Diagram with brief description.
+    
+    This diagram is tentative and up for discussion as development continues for our application.
+
+[33mcommit 20433eb1111a491e4280ae8c483c9a13e5575840[m
+Merge: da4cf14 1c98e65
+Author: Daniel Calle <daniel.calle@wsu.edu>
+Date:   Tue Oct 15 23:19:26 2024 -0700
+
+    Merge branch 'main' o
