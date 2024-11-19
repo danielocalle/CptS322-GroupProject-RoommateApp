@@ -21,6 +21,7 @@ namespace RoomMate_WinFormsApp
             currentButton = btnDashboard;
             ActivateButton(btnDashboard);
             ProfilePanel.Visible = false;
+            MatchesPanel1.Visible = false;
         }
 
         public void PassAccountInfoFromLogin(AccountLoginInfo loginInfo)
