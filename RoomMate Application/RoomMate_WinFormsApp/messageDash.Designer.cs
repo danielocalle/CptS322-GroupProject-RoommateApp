@@ -636,6 +636,7 @@ namespace RoomMate_WinFormsApp
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(btnDashboard);
+            
         }
 
         //private void btnMessages_Click(object sender, EventArgs e)
