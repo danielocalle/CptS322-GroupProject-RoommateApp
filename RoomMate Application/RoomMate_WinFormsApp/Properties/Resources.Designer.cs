@@ -63,16 +63,6 @@ namespace RoomMate_WinFormsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _CITYPNG_COM_Download_Blue_Search_Icon_Button_PNG___700x700 {
-            get {
-                object obj = ResourceManager.GetObject("[CITYPNG.COM]Download Blue Search Icon Button PNG - 700x700", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BebePFP {
             get {
                 object obj = ResourceManager.GetObject("BebePFP", resourceCulture);
@@ -213,17 +203,6 @@ namespace RoomMate_WinFormsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imgbin_washington_state_university_spokane_washington_state_cougars_football_washington_state_cougars_womens_basketball_washington_state_cougars_baseball_png {
-            get {
-                object obj = ResourceManager.GetObject("imgbin_washington-state-university-spokane-washington-state-cougars-football-wash" +
-                        "ington-state-cougars-womens-basketball-washington-state-cougars-baseball-png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap matches {
             get {
                 object obj = ResourceManager.GetObject("matches", resourceCulture);
@@ -307,26 +286,6 @@ namespace RoomMate_WinFormsApp.Properties {
         internal static System.Drawing.Bitmap plus1 {
             get {
                 object obj = ResourceManager.GetObject("plus1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pngtree_vector_notification_icon_png_image_1023272 {
-            get {
-                object obj = ResourceManager.GetObject("pngtree-vector-notification-icon-png-image_1023272", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pngtree_vvector_notification_icon_png_image_957092 {
-            get {
-                object obj = ResourceManager.GetObject("pngtree-vvector-notification-icon-png-image_957092", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
