@@ -64,7 +64,7 @@ namespace RoomMate_WinFormsApp
         {
             ActivateButton(btnMessages);
             // This is where you will swap to message panel when we have one.
-            // ShowPanel(messagePanel);
+            ShowPanel(messages);
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
@@ -121,6 +121,7 @@ namespace RoomMate_WinFormsApp
             // hide all other panels
             ProfilePanel.Visible = false;
             MatchesPanel1.Visible = false;
+            messages.Visible = false;
 
             // display the chosen panel
             displayThisPanel.Visible = true;
