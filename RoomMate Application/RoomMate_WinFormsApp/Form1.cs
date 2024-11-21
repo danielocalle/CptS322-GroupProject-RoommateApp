@@ -83,6 +83,7 @@ namespace RoomMate_WinFormsApp
         {
             ActivateButton(btnSettings);
             ProfilePanel.Visible = false;
+            messages.Visible = false;
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
@@ -127,6 +128,9 @@ namespace RoomMate_WinFormsApp
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //var messageForm = new messageDash();
+            //messageForm.Show();
+            messages.Show();
             Application.Exit();
         }
 
@@ -241,6 +245,82 @@ namespace RoomMate_WinFormsApp
             {
                 MessageBox.Show("Please answer all questions before saving.");
             }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+            if (searchBar.Visible == true)
+            {
+                searchBar.Visible = false;
+            }
+            else
+            {
+                searchBar.Visible = true;
+            }
+        }
+
+        private void notifications_Click(object sender, EventArgs e)
+        {
+            if (notificationList.Visible == true)
+            {
+                notificationList.Visible = false;
+            }
+            else
+            {
+                notificationList.Visible = true;
+            }
+        }
+
+        private void chat_Click(object sender, EventArgs e)
+        {
+            if (contactMessages.Visible == true)
+            {
+                contactMessages.Visible = false;
+            }
+            else
+            {
+                contactMessages.Visible = true;
+                contactMessages.BringToFront();
+                contactMessages.Dock = DockStyle.Bottom;
+            }
+        }
+
+        private void send_Click(object sender, EventArgs e)
+        {
+            string message = messageEditor.Text;
+
+            Label textBubble = new Label();
+
+            textBubble.Text = message;
+            textBubble.TextAlign = ContentAlignment.MiddleLeft;
+            textBubble.AutoSize = true;
+            textBubble.Padding = new Padding(10);
+            textBubble.BackColor = Color.LightBlue;
+            textBubble.Margin = new Padding(0, 2, 0, 2);
+
+            int yOffset = 10;
+
+            foreach(Control control in contactMessages.Controls)
+            {
+                yOffset += control.Height + control.Margin.Bottom;
+            }
+
+            textBubble.Location = new Point(10, yOffset);
+
+            textMessageViewer.Controls.Add(textBubble);
+
+            textMessageViewer.ScrollControlIntoView(textBubble);
+
+            messageEditor.Clear();
+
+            sentMessages.Add(sentMessageCounter++, textBubble);
+
+            chat.Text = message;
         }
 
         public static void DisplayRankedUsers(string loggedInUsername, ListBox listBox)

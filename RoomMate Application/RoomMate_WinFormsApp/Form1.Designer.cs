@@ -69,6 +69,25 @@
             Question1label = new Label();
             AboutMelabel = new Label();
             textBox1 = new TextBox();
+            messages = new TableLayoutPanel();
+            contacts = new Label();
+            panelLabel = new Label();
+            settings = new PictureBox();
+            contactScroll = new VScrollBar();
+            contactHolder = new TableLayoutPanel();
+            chat = new Button();
+            pfp = new PictureBox();
+            name = new Label();
+            notifications = new PictureBox();
+            add = new PictureBox();
+            search = new PictureBox();
+            searchBar = new TextBox();
+            notificationList = new CheckedListBox();
+            contactMessages = new Panel();
+            messageControls = new Panel();
+            send = new PictureBox();
+            messageEditor = new RichTextBox();
+            textMessageViewer = new Panel();
             MatchesPanel1 = new Panel();
             refreshList = new Button();
             label3 = new Label();
@@ -78,6 +97,16 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ProfilePanel.SuspendLayout();
+            messages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)settings).BeginInit();
+            contactHolder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pfp).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)notifications).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)add).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)search).BeginInit();
+            contactMessages.SuspendLayout();
+            messageControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)send).BeginInit();
             MatchesPanel1.SuspendLayout();
             rightPanel.SuspendLayout();
             SuspendLayout();
@@ -95,7 +124,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 577);
+            panel1.Size = new Size(183, 577);
             panel1.TabIndex = 0;
             // 
             // PnlNav
@@ -111,12 +140,12 @@
             btnSettings.Dock = DockStyle.Bottom;
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSettings.Font = new Font("Ravie", 9.75F, FontStyle.Bold);
             btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
             btnSettings.Image = Properties.Resources.settings;
             btnSettings.Location = new Point(0, 521);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(186, 56);
+            btnSettings.Size = new Size(183, 56);
             btnSettings.TabIndex = 1;
             btnSettings.Text = "Settings";
             btnSettings.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -129,12 +158,12 @@
             btnProfile.Dock = DockStyle.Top;
             btnProfile.FlatAppearance.BorderSize = 0;
             btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProfile.Font = new Font("Ravie", 9.75F, FontStyle.Bold);
             btnProfile.ForeColor = Color.FromArgb(0, 126, 249);
             btnProfile.Image = Properties.Resources.profile;
             btnProfile.Location = new Point(0, 328);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(186, 56);
+            btnProfile.Size = new Size(183, 56);
             btnProfile.TabIndex = 1;
             btnProfile.Text = "Profile";
             btnProfile.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -147,12 +176,12 @@
             btnMatches.Dock = DockStyle.Top;
             btnMatches.FlatAppearance.BorderSize = 0;
             btnMatches.FlatStyle = FlatStyle.Flat;
-            btnMatches.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMatches.Font = new Font("Ravie", 9.75F, FontStyle.Bold);
             btnMatches.ForeColor = Color.FromArgb(0, 126, 249);
             btnMatches.Image = Properties.Resources.matches;
             btnMatches.Location = new Point(0, 272);
             btnMatches.Name = "btnMatches";
-            btnMatches.Size = new Size(186, 56);
+            btnMatches.Size = new Size(183, 56);
             btnMatches.TabIndex = 1;
             btnMatches.Text = "Matches";
             btnMatches.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -165,12 +194,12 @@
             btnMessages.Dock = DockStyle.Top;
             btnMessages.FlatAppearance.BorderSize = 0;
             btnMessages.FlatStyle = FlatStyle.Flat;
-            btnMessages.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMessages.Font = new Font("Ravie", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMessages.ForeColor = Color.FromArgb(0, 126, 249);
             btnMessages.Image = Properties.Resources.messages;
             btnMessages.Location = new Point(0, 216);
             btnMessages.Name = "btnMessages";
-            btnMessages.Size = new Size(186, 56);
+            btnMessages.Size = new Size(183, 56);
             btnMessages.TabIndex = 1;
             btnMessages.Text = "Messages";
             btnMessages.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -183,12 +212,12 @@
             btnDashboard.Dock = DockStyle.Top;
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.Font = new Font("Ravie", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
             btnDashboard.Image = Properties.Resources.home2;
             btnDashboard.Location = new Point(0, 160);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(186, 56);
+            btnDashboard.Size = new Size(183, 56);
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -204,12 +233,12 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(186, 160);
+            panel2.Size = new Size(183, 160);
             panel2.TabIndex = 0;
             // 
             // label2
             // 
-            label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("MV Boli", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(158, 161, 178);
             label2.Location = new Point(0, 128);
             label2.Name = "label2";
@@ -220,7 +249,7 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Bodoni MT", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(0, 126, 249);
             label1.Location = new Point(0, 98);
             label1.Name = "label1";
@@ -275,6 +304,7 @@
             ProfilePanel.Name = "ProfilePanel";
             ProfilePanel.Size = new Size(759, 577);
             ProfilePanel.TabIndex = 2;
+            ProfilePanel.Visible = false;
             // 
             // profilePageLabel
             // 
@@ -611,6 +641,246 @@
             textBox1.Size = new Size(316, 388);
             textBox1.TabIndex = 0;
             // 
+            // messages
+            // 
+            messages.ColumnCount = 7;
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 62.1500549F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 27F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.9132652F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.8418369F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 62F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 62F));
+            messages.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 66F));
+            messages.Controls.Add(contacts, 0, 1);
+            messages.Controls.Add(panelLabel, 0, 0);
+            messages.Controls.Add(settings, 6, 0);
+            messages.Controls.Add(contactScroll, 1, 2);
+            messages.Controls.Add(contactHolder, 0, 2);
+            messages.Controls.Add(notifications, 5, 0);
+            messages.Controls.Add(add, 4, 0);
+            messages.Controls.Add(search, 3, 0);
+            messages.Controls.Add(searchBar, 2, 0);
+            messages.Controls.Add(notificationList, 4, 1);
+            messages.Dock = DockStyle.Fill;
+            messages.Location = new Point(183, 0);
+            messages.Margin = new Padding(2, 2, 2, 2);
+            messages.Name = "messages";
+            messages.RowCount = 3;
+            messages.RowStyles.Add(new RowStyle(SizeType.Percent, 44.23077F));
+            messages.RowStyles.Add(new RowStyle(SizeType.Percent, 55.76923F));
+            messages.RowStyles.Add(new RowStyle(SizeType.Absolute, 452F));
+            messages.RowStyles.Add(new RowStyle(SizeType.Absolute, 266F));
+            messages.RowStyles.Add(new RowStyle(SizeType.Absolute, 12F));
+            messages.Size = new Size(768, 577);
+            messages.TabIndex = 28;
+            messages.Visible = false;
+            // 
+            // contacts
+            // 
+            contacts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            contacts.Font = new Font("Ravie", 15F);
+            contacts.Location = new Point(7, 61);
+            contacts.Margin = new Padding(7, 6, 7, 6);
+            contacts.Name = "contacts";
+            contacts.Size = new Size(328, 57);
+            contacts.TabIndex = 9;
+            contacts.Text = "Contacts";
+            contacts.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // panelLabel
+            // 
+            panelLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelLabel.Font = new Font("Ravie", 20F);
+            panelLabel.Location = new Point(7, 6);
+            panelLabel.Margin = new Padding(7, 6, 7, 6);
+            panelLabel.Name = "panelLabel";
+            panelLabel.Size = new Size(328, 43);
+            panelLabel.TabIndex = 0;
+            panelLabel.Text = "MESSAGES";
+            panelLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // settings
+            // 
+            settings.Image = Properties.Resources.settingsIcon;
+            settings.Location = new Point(702, 2);
+            settings.Margin = new Padding(2, 2, 2, 2);
+            settings.Name = "settings";
+            settings.Size = new Size(58, 51);
+            settings.SizeMode = PictureBoxSizeMode.Zoom;
+            settings.TabIndex = 5;
+            settings.TabStop = false;
+            // 
+            // contactScroll
+            // 
+            contactScroll.Location = new Point(342, 124);
+            contactScroll.Name = "contactScroll";
+            contactScroll.Size = new Size(27, 452);
+            contactScroll.TabIndex = 11;
+            // 
+            // contactHolder
+            // 
+            contactHolder.ColumnCount = 2;
+            contactHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.1203327F));
+            contactHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.87967F));
+            contactHolder.Controls.Add(chat, 1, 0);
+            contactHolder.Controls.Add(pfp, 0, 0);
+            contactHolder.Controls.Add(name, 0, 1);
+            contactHolder.Location = new Point(2, 126);
+            contactHolder.Margin = new Padding(2, 2, 2, 2);
+            contactHolder.Name = "contactHolder";
+            contactHolder.RowCount = 2;
+            contactHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 60.5150223F));
+            contactHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 39.4849777F));
+            contactHolder.Size = new Size(337, 140);
+            contactHolder.TabIndex = 12;
+            // 
+            // chat
+            // 
+            chat.Dock = DockStyle.Top;
+            chat.Location = new Point(106, 2);
+            chat.Margin = new Padding(2, 2, 2, 2);
+            chat.Name = "chat";
+            contactHolder.SetRowSpan(chat, 2);
+            chat.Size = new Size(229, 100);
+            chat.TabIndex = 2;
+            chat.UseVisualStyleBackColor = true;
+            chat.Click += chat_Click;
+            // 
+            // pfp
+            // 
+            pfp.Anchor = AnchorStyles.None;
+            pfp.Image = Properties.Resources.parteek;
+            pfp.Location = new Point(10, 6);
+            pfp.Margin = new Padding(2, 2, 2, 2);
+            pfp.Name = "pfp";
+            pfp.Size = new Size(84, 72);
+            pfp.SizeMode = PictureBoxSizeMode.StretchImage;
+            pfp.TabIndex = 0;
+            pfp.TabStop = false;
+            // 
+            // name
+            // 
+            name.Dock = DockStyle.Top;
+            name.Font = new Font("Cooper Black", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            name.ForeColor = SystemColors.Control;
+            name.Location = new Point(2, 84);
+            name.Margin = new Padding(2, 0, 2, 0);
+            name.Name = "name";
+            name.Size = new Size(100, 17);
+            name.TabIndex = 1;
+            name.Text = "Parteek";
+            name.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // notifications
+            // 
+            notifications.Image = Properties.Resources.notificationsResized;
+            notifications.Location = new Point(640, 2);
+            notifications.Margin = new Padding(2, 2, 2, 2);
+            notifications.Name = "notifications";
+            notifications.Size = new Size(57, 51);
+            notifications.SizeMode = PictureBoxSizeMode.Zoom;
+            notifications.TabIndex = 4;
+            notifications.TabStop = false;
+            notifications.Click += notifications_Click;
+            // 
+            // add
+            // 
+            add.Image = Properties.Resources.plus1;
+            add.Location = new Point(578, 2);
+            add.Margin = new Padding(2, 2, 2, 2);
+            add.Name = "add";
+            add.Size = new Size(57, 51);
+            add.SizeMode = PictureBoxSizeMode.Zoom;
+            add.TabIndex = 6;
+            add.TabStop = false;
+            add.Click += add_Click;
+            // 
+            // search
+            // 
+            search.Image = Properties.Resources.searchIcon;
+            search.Location = new Point(519, 2);
+            search.Margin = new Padding(2, 2, 2, 2);
+            search.Name = "search";
+            search.Size = new Size(55, 51);
+            search.SizeMode = PictureBoxSizeMode.Zoom;
+            search.TabIndex = 3;
+            search.TabStop = false;
+            search.Click += search_Click;
+            // 
+            // searchBar
+            // 
+            searchBar.Anchor = AnchorStyles.None;
+            searchBar.Location = new Point(372, 16);
+            searchBar.Margin = new Padding(2, 2, 2, 2);
+            searchBar.Name = "searchBar";
+            searchBar.Size = new Size(141, 23);
+            searchBar.TabIndex = 13;
+            searchBar.Visible = false;
+            // 
+            // notificationList
+            // 
+            messages.SetColumnSpan(notificationList, 3);
+            notificationList.FormattingEnabled = true;
+            notificationList.Location = new Point(578, 57);
+            notificationList.Margin = new Padding(2, 2, 2, 2);
+            notificationList.Name = "notificationList";
+            messages.SetRowSpan(notificationList, 2);
+            notificationList.Size = new Size(187, 508);
+            notificationList.TabIndex = 14;
+            notificationList.Visible = false;
+            // 
+            // contactMessages
+            // 
+            contactMessages.AutoScroll = true;
+            contactMessages.Controls.Add(messageControls);
+            contactMessages.Controls.Add(textMessageViewer);
+            contactMessages.Location = new Point(0, 0);
+            contactMessages.Margin = new Padding(2, 2, 2, 2);
+            contactMessages.Name = "contactMessages";
+            contactMessages.Size = new Size(719, 292);
+            contactMessages.TabIndex = 10;
+            contactMessages.Visible = false;
+            // 
+            // messageControls
+            // 
+            messageControls.Controls.Add(send);
+            messageControls.Controls.Add(messageEditor);
+            messageControls.Dock = DockStyle.Bottom;
+            messageControls.Location = new Point(0, 198);
+            messageControls.Margin = new Padding(2, 2, 2, 2);
+            messageControls.Name = "messageControls";
+            messageControls.Size = new Size(719, 94);
+            messageControls.TabIndex = 15;
+            // 
+            // send
+            // 
+            send.Image = Properties.Resources.sendSymbol;
+            send.Location = new Point(607, -1);
+            send.Margin = new Padding(2, 2, 2, 2);
+            send.Name = "send";
+            send.Size = new Size(112, 96);
+            send.TabIndex = 1;
+            send.TabStop = false;
+            send.Click += send_Click;
+            // 
+            // messageEditor
+            // 
+            messageEditor.Location = new Point(0, 0);
+            messageEditor.Margin = new Padding(2, 2, 2, 2);
+            messageEditor.Name = "messageEditor";
+            messageEditor.Size = new Size(609, 98);
+            messageEditor.TabIndex = 0;
+            messageEditor.Text = "";
+            // 
+            // textMessageViewer
+            // 
+            textMessageViewer.AutoScroll = true;
+            textMessageViewer.Location = new Point(0, 0);
+            textMessageViewer.Margin = new Padding(2, 2, 2, 2);
+            textMessageViewer.Name = "textMessageViewer";
+            textMessageViewer.Size = new Size(717, 194);
+            textMessageViewer.TabIndex = 15;
+            // 
             // MatchesPanel1
             // 
             MatchesPanel1.Controls.Add(refreshList);
@@ -669,7 +939,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(951, 577);
+            Controls.Add(messages);
+            Controls.Add(ProfilePanel);
             Controls.Add(panel1);
+            Controls.Add(contactMessages);
             Controls.Add(rightPanel);
             Name = "Form1";
             RightToLeft = RightToLeft.No;
@@ -682,12 +955,26 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ProfilePanel.ResumeLayout(false);
             ProfilePanel.PerformLayout();
+            messages.ResumeLayout(false);
+            messages.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)settings).EndInit();
+            contactHolder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pfp).EndInit();
+            ((System.ComponentModel.ISupportInitialize)notifications).EndInit();
+            ((System.ComponentModel.ISupportInitialize)add).EndInit();
+            ((System.ComponentModel.ISupportInitialize)search).EndInit();
+            contactMessages.ResumeLayout(false);
+            messageControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)send).EndInit();
             MatchesPanel1.ResumeLayout(false);
             rightPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Dictionary<int, Label> sentMessages = new Dictionary<int, Label>();
+        private int sentMessageCounter = 0;
 
         private Panel panel1;
         private Panel panel2;
@@ -729,6 +1016,25 @@
         private Button savePrefbutton1;
         private Label profilePageLabel;
         private Button noButton6;
+        private TableLayoutPanel messages;
+        private Label panelLabel;
+        private PictureBox search;
+        private PictureBox notifications;
+        private PictureBox settings;
+        private PictureBox add;
+        private PictureBox pfp;
+        private Label name;
+        private Label contacts;
+        private Panel contactMessages;
+        private RichTextBox messageEditor;
+        private PictureBox send;
+        private VScrollBar contactScroll;
+        private Button chat;
+        private TableLayoutPanel contactHolder;
+        private TextBox searchBar;
+        private CheckedListBox notificationList;
+        private Panel messageControls;
+        private Panel textMessageViewer;
         private Panel MatchesPanel1;
         private Label label3;
         private ListBox listBox1;
