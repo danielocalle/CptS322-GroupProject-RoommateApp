@@ -18,7 +18,7 @@ namespace RoomMate_WinFormsApp
         public login()
         {
             InitializeComponent();
-            main = new Form1();
+            main = new Form1(this);
             mainpanel.Visible = true;
             registerpanel.Visible = false;
             forgotpasswordpanel.Visible = false;
@@ -81,7 +81,7 @@ namespace RoomMate_WinFormsApp
             if (SQLiteDataAccess.VerifyLogin(ref loginInfo))
             {
                 this.Hide();
-                main.PassAccountInfoFromLogin(loginInfo);
+                main.PassAccountInfoFromLogin(true, loginInfo);
                 main.Show();
             }
             else
@@ -105,7 +105,7 @@ namespace RoomMate_WinFormsApp
             if (SQLiteDataAccess.CreateAccount(loginInfo))
             {
                 this.Hide();
-                main.PassAccountInfoFromLogin(loginInfo);
+                main.PassAccountInfoFromLogin(false, loginInfo);
                 main.Show();
             }
             else
@@ -116,6 +116,10 @@ namespace RoomMate_WinFormsApp
 
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //foreach (Form form in Application.OpenForms)
+            //{
+            //    form.Close();
+            //}
             Application.Exit();
         }
     }

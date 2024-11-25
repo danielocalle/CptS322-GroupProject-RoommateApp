@@ -29,6 +29,16 @@ namespace RoommateAppLibrary
 
         }
 
+        public UserInfo(AccountLoginInfo userName, Preferences Pref, string first, string last,string Aboutme)
+        {
+            this.account = userName;
+            this.firstname = first;
+            this.lastname = last;
+            this.prefs = Pref;
+            this.aboutMe = Aboutme;
+
+        }
+
 
         // will get the data from a database
 
