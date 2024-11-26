@@ -115,7 +115,6 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
-            // This is where you will swap to message panel when we have one.
             ShowPanel(messages);
         }
 
@@ -137,7 +136,9 @@ namespace RoomMate_WinFormsApp
             ProfilePanel.Visible = false;
             messages.Visible = false;
 
-            LoadProfileInfoFromDB();
+            // Might refactor this button to be a refresh button instead of settings
+            // since it is likely that we will remove settings as a button.
+            //LoadProfileInfoFromDB();
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
@@ -183,11 +184,6 @@ namespace RoomMate_WinFormsApp
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // This was code to ensure all forms close since I was having issues, but I think it was not the culprit.
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    form.Close();
-            //}
             Application.Exit();
         }
 
@@ -285,7 +281,6 @@ namespace RoomMate_WinFormsApp
                    preferences.CommonAreaTidy != null;
         }
 
-        // set all the question buttons back to default
         private void savePrefbutton1_Click(object sender, EventArgs e)
         {
             if (AreAllQuestionsAnswered(UserPreferences))
@@ -294,9 +289,6 @@ namespace RoomMate_WinFormsApp
                 UserInfo userPref = new UserInfo(loggedInUser, UserPreferences, textBox1.Text);
                 UserInfoWithInt user = new(userPref, 0);
                 SQLiteDataAccess.SavePreferences(user);
-                // these bottom function get the list of users in the database then rank them
-                //List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
-                //List<UserInfoWithInt> rankingUsers = RoommateApp.RankUsers(allUsers, loggedInUser.Username);
             }
             else
             {

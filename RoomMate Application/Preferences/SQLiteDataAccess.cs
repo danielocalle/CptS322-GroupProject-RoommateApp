@@ -59,9 +59,6 @@ namespace RoommateAppLibrary
 
         }
 
-
-
-
         // function for getting list of users from the database
         public static List<UserInfoWithInt> GetListOfUsers()
         {
@@ -114,15 +111,6 @@ namespace RoommateAppLibrary
                 UserInfo userInfo;
 
                 userInfo = new UserInfo(account, preferences, result.firstname, result.lastname, result.aboutme);
-
-                //if (result.preferences == null || result.aboutme == null)
-                //{
-                //    userInfo = new UserInfo(account, result.firstname, result.lastname);
-                //}
-                //else
-                //{
-                //    userInfo = new UserInfo(account, preferences, result.firstname, result.lastname, result.aboutme);
-                //}
 
                 return userInfo;
             }

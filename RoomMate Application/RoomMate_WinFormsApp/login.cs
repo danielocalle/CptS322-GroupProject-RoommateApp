@@ -116,10 +116,6 @@ namespace RoomMate_WinFormsApp
 
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    form.Close();
-            //}
             Application.Exit();
         }
     }
