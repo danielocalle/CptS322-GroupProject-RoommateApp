@@ -11,16 +11,10 @@ namespace RoommateAppLibrary
        public UserInfo User { get; set; }
         public int Score { get; set; }
 
-        //public UserInfoWithInt() { }
-        public UserInfoWithInt(UserInfo user, int score) { 
-        
+        public UserInfoWithInt(UserInfo user, int score)
+        {
             this.User = user;
             this.Score = score; 
-        
-        
         }
-
-        
-
     }
 }

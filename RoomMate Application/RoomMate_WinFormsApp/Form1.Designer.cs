@@ -935,9 +935,9 @@
             // 
             // rightPanel
             // 
-            rightPanel.Controls.Add(messages);
             rightPanel.Controls.Add(ProfilePanel);
             rightPanel.Controls.Add(MatchesPanel1);
+            rightPanel.Controls.Add(messages);
             rightPanel.Dock = DockStyle.Right;
             rightPanel.Location = new Point(275, 0);
             rightPanel.Margin = new Padding(4, 5, 4, 5);
@@ -952,8 +952,8 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1359, 962);
             Controls.Add(panel1);
-            Controls.Add(contactMessages);
             Controls.Add(rightPanel);
+            Controls.Add(contactMessages);
             Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             RightToLeft = RightToLeft.No;

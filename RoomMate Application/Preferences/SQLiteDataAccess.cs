@@ -59,9 +59,6 @@ namespace RoommateAppLibrary
 
         }
 
-
-
-
         // function for getting list of users from the database
         public static List<UserInfoWithInt> GetListOfUsers()
         {
@@ -98,10 +95,26 @@ namespace RoommateAppLibrary
             }
         }
 
-        
+        public static UserInfo GetUserInfo(AccountLoginInfo account)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var query = @"
+                    SELECT username, firstname, lastname, aboutme, preferences 
+                    FROM UserInfo 
+                    WHERE username = @Username";
 
+                var result = cnn.QueryFirstOrDefault(query, new { Username = account.Username });
 
+                var preferences = new Preferences(result.preferences);
 
+                UserInfo userInfo;
+
+                userInfo = new UserInfo(account, preferences, result.firstname, result.lastname, result.aboutme);
+
+                return userInfo;
+            }
+        }
 
         public static bool VerifyLogin(ref AccountLoginInfo accountInfo)
         {
