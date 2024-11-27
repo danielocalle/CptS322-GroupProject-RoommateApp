@@ -78,7 +78,6 @@
             label3 = new Label();
             listBox1 = new ListBox();
             rightPanel = new Panel();
-            LoadPrefsNAboutMe = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -255,7 +254,6 @@
             // 
             // ProfilePanel
             // 
-            ProfilePanel.Controls.Add(LoadPrefsNAboutMe);
             ProfilePanel.Controls.Add(profilePageLabel);
             ProfilePanel.Controls.Add(savePrefbutton1);
             ProfilePanel.Controls.Add(yesButton6);
@@ -706,18 +704,6 @@
             rightPanel.Size = new Size(867, 769);
             rightPanel.TabIndex = 29;
             // 
-            // LoadPrefsNAboutMe
-            // 
-            LoadPrefsNAboutMe.FlatStyle = FlatStyle.Flat;
-            LoadPrefsNAboutMe.ForeColor = SystemColors.Control;
-            LoadPrefsNAboutMe.Location = new Point(506, 29);
-            LoadPrefsNAboutMe.Name = "LoadPrefsNAboutMe";
-            LoadPrefsNAboutMe.Size = new Size(285, 53);
-            LoadPrefsNAboutMe.TabIndex = 28;
-            LoadPrefsNAboutMe.Text = "Load preferences and About me";
-            LoadPrefsNAboutMe.UseVisualStyleBackColor = true;
-            LoadPrefsNAboutMe.Click += LoadPrefsNAboutMe_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -795,6 +781,5 @@
         private Label SelectedUserslabel;
         private Label SelectedUsersPrefsLabel;
         private CheckedListBox SelectedUsersPreferences;
-        private Button LoadPrefsNAboutMe;
     }
 }

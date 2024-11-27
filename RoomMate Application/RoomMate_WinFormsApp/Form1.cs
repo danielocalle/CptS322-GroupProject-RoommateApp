@@ -339,50 +339,5 @@ namespace RoomMate_WinFormsApp
                 SelectedUsersPreferences.SetItemChecked(i, false);
             }
         }
-
-        private void LoadPrefsNAboutMe_Click(object sender, EventArgs e)
-        {
-            LoadUserProfile(loggedInUser.Username);
-        }
-
-        private void LoadUserProfile(string username)
-        {
-            var userInfo = SQLiteDataAccess.GetUserInfo(username);
-
-            // if the user exists check the userinfo object for the preferences and set the buttons accordingly
-            if (userInfo != null)
-            {
-                textBox1.Text = userInfo.User.aboutMe;
-
-                UpdateButtonState(yesButton1, noButton1, userInfo.User.prefs.isQuiet);
-                UpdateButtonState(yesButton2, noButton2, userInfo.User.prefs.hasPets);
-                UpdateButtonState(yesButton3, noButton3, userInfo.User.prefs.earlyRiser);
-                UpdateButtonState(yesButton4, noButton4, userInfo.User.prefs.stayUpLate);
-                UpdateButtonState(yesButton5, noButton5, userInfo.User.prefs.spentTimeRoommate);
-                UpdateButtonState(yesButton6, noButton6, userInfo.User.prefs.CommonAreaTidy);
-
-                UserPreferences = userInfo.User.prefs;
-                
-            } else // if we cannot find the user this message should show
-            {
-                MessageBox.Show("Logged in user does not have previous info to load");
-            }
-        
-        }
-
-        private void UpdateButtonState(Button yesButton, Button noButton, bool preference)
-        {
-            // if the pref = true set the yes button to green and no to default, if pref = false set the no button to red and yes to default
-            if (preference)
-            {
-                yesButton.BackColor = Color.Green;
-                noButton.BackColor = default(Color);
-
-            } else
-            {
-                yesButton.BackColor= default(Color);
-                noButton.BackColor= Color.Red;
-            }
-        }
     }
 }
