@@ -14,6 +14,7 @@ namespace RoommateAppLibrary
 
         // we're gonna have a static method evaluate that will deal with match points
 
+        // calculates the similarity scores between the logged in user and all the other users
         public static int CalculateScore(Preferences loggedInUserPreferences, Preferences otherUserPreferences)
         {
             int score = 0;
@@ -28,7 +29,8 @@ namespace RoommateAppLibrary
             return score;
         }
 
-        public static List<UserInfoWithInt> RankUsers(List<UserInfoWithInt> users, string loggedInUsername)
+        // ranks the users from greatest to least by score
+        public static IEnumerable<UserInfoWithInt> RankUsers(List<UserInfoWithInt> users, string loggedInUsername)
         {
             // Get the logged-in user's preferences
             var loggedInUser = users.FirstOrDefault(user => user.User.account.Username == loggedInUsername);
@@ -48,8 +50,7 @@ namespace RoommateAppLibrary
             // Return the ranked list of users, sorted by score in descending order
             return users
                 .Where(user => user.User.account.Username != loggedInUsername)
-                .OrderByDescending(user => user.Score)
-                .ToList();
+                .OrderByDescending(user => user.Score);
 
         }
 
