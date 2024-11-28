@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
 using RoommateAppLibrary;
+using static RoommateAppLibrary.SQLiteDataAccess;
 
 namespace RoomMate_WinFormsApp
 {
@@ -354,7 +355,7 @@ namespace RoomMate_WinFormsApp
 
             int yOffset = 10;
 
-            foreach(Control control in contactMessages.Controls)
+            foreach (Control control in contactMessages.Controls)
             {
                 yOffset += control.Height + control.Margin.Bottom;
             }
@@ -396,6 +397,24 @@ namespace RoomMate_WinFormsApp
         private void refreshList_Click(object sender, EventArgs e)
         {
             DisplayRankedUsers(loggedInUser.Username, listBox1);
+        }
+
+        private void requestbutton_Click(object sender, EventArgs e)
+        {
+            string senderUsername = "currentUsername";
+            string receiverUsername = "selectedUser"; //this will be replaced after we click on the user that we wanna add 
+
+
+            bool requestSent = RoommateService.SendRequest(senderUsername, receiverUsername);
+
+            if (requestSent)
+            {
+                MessageBox.Show("Roommate request sent successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to send roommate request. It may already exist or there was an error.");
+            }
         }
     }
 }
