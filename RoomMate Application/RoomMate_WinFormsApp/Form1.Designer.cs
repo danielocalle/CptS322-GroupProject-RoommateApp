@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            requestbutton = new Button();
             PnlNav = new Panel();
             btnSettings = new Button();
             btnProfile = new Button();
@@ -114,6 +115,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.Controls.Add(requestbutton);
             panel1.Controls.Add(PnlNav);
             panel1.Controls.Add(btnSettings);
             panel1.Controls.Add(btnProfile);
@@ -127,6 +129,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(261, 962);
             panel1.TabIndex = 0;
+            // 
+            // requestbutton
+            // 
+            requestbutton.Location = new Point(75, 794);
+            requestbutton.Name = "requestbutton";
+            requestbutton.Size = new Size(112, 34);
+            requestbutton.TabIndex = 3;
+            requestbutton.Text = "request";
+            requestbutton.UseVisualStyleBackColor = true;
+            requestbutton.Click += requestbutton_Click;
             // 
             // PnlNav
             // 
@@ -1051,5 +1063,6 @@
         private ListBox listBox1;
         private Button refreshList;
         private Panel rightPanel;
+        private Button requestbutton;
     }
 }
