@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Dapper;
+using System.Runtime.InteropServices;
 
 namespace RoommateAppLibrary
 {
@@ -95,9 +96,6 @@ namespace RoommateAppLibrary
 
         }
 
-
-
-
         // function for getting list of users from the database
         public static List<UserInfoWithInt> GetListOfUsers()
         {
@@ -134,10 +132,26 @@ namespace RoommateAppLibrary
             }
         }
 
-        
+        public static UserInfo GetUserInfo(AccountLoginInfo account)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var query = @"
+                    SELECT username, firstname, lastname, aboutme, preferences 
+                    FROM UserInfo 
+                    WHERE username = @Username";
 
+                var result = cnn.QueryFirstOrDefault(query, new { Username = account.Username });
 
+                var preferences = new Preferences(result.preferences);
 
+                UserInfo userInfo;
+
+                userInfo = new UserInfo(account, preferences, result.firstname, result.lastname, result.aboutme);
+
+                return userInfo;
+            }
+        }
 
         public static bool VerifyLogin(ref AccountLoginInfo accountInfo)
         {
@@ -185,9 +199,52 @@ namespace RoommateAppLibrary
             }
         }
 
-        private static string LoadConnectionString(string id = "Default")
+        public static void CreateRoommateRequestsTable()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string query = @"
+            CREATE TABLE IF NOT EXISTS RoommateRequests (
+                RequestId INTEGER PRIMARY KEY AUTOINCREMENT,
+                SenderUsername TEXT NOT NULL,
+                ReceiverUsername TEXT NOT NULL,
+                Status TEXT NOT NULL -- 'Pending', 'Accepted', or 'Rejected'
+            )";
+                cnn.Execute(query);
+            }
+        }
+
+        public static bool SendRoommateRequest(string senderUsername, string receiverUsername)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                // Check if a request already exists between the sender and receiver
+                var existingRequest = cnn.QueryFirstOrDefault<RoommateRequest>(
+                    "SELECT * FROM RoommateRequests WHERE SenderUsername = @Sender AND ReceiverUsername = @Receiver AND Status = 'Pending'",
+                    new { Sender = senderUsername, Receiver = receiverUsername });
+
+                if (existingRequest != null)
+                {
+                    return false; // A request already exists
+                }
+
+                // Insert the new request as 'Pending'
+                cnn.Execute(
+                    "INSERT INTO RoommateRequests (SenderUsername, ReceiverUsername, Status) VALUES (@Sender, @Receiver, 'Pending')",
+                    new { Sender = senderUsername, Receiver = receiverUsername });
+
+                return true; // Request successfully sent
+            }
+        }
+
+        
+
+        public static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
+      
+
     }
 }

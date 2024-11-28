@@ -5,6 +5,7 @@ using System.Security.Cryptography.Xml;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
 using RoommateAppLibrary;
+using static RoommateAppLibrary.SQLiteDataAccess;
 
 namespace RoomMate_WinFormsApp
 {
@@ -15,9 +16,14 @@ namespace RoomMate_WinFormsApp
         private static IEnumerable<UserInfoWithInt> rankedUsers;
 
         private AccountLoginInfo loggedInUser;
+        private UserInfo userInfo;
 
-        public Form1()
+        private login loginForm;
+
+        public Form1(login loginForm)
         {
+            this.loginForm = loginForm;
+
             InitializeComponent();
 
             currentButton = btnDashboard;
@@ -26,11 +32,58 @@ namespace RoomMate_WinFormsApp
             MatchesPanel1.Visible = false;
         }
 
-        public void PassAccountInfoFromLogin(AccountLoginInfo loginInfo)
+        public void PassAccountInfoFromLogin(bool flag, AccountLoginInfo loginInfo)
         {
             this.loggedInUser = loginInfo;
             this.label1.Text = loggedInUser.FirstName + " " + loggedInUser.LastName;
             this.label2.Text = loggedInUser.Username;
+            if (flag) this.LoadProfileInfoFromDB();
+        }
+        
+        private void LoadProfileInfoFromDB()
+        {
+            this.userInfo = SQLiteDataAccess.GetUserInfo(loggedInUser);
+            textBox1.Text = userInfo.aboutMe;
+            this.LoadYesNoButtons(userInfo.prefs);
+        }
+
+        private void LoadYesNoButtons(Preferences preferences)
+        {
+            if (preferences.isQuiet.HasValue)
+            {
+                if ((bool)preferences.isQuiet) yesButton1.BackColor = Color.Green;
+                else if (!(bool)preferences.isQuiet) noButton1.BackColor = Color.Red;
+            }
+
+            if (preferences.hasPets.HasValue)
+            {
+                if ((bool)preferences.hasPets) yesButton2.BackColor = Color.Green;
+                else if (!(bool)preferences.hasPets) noButton2.BackColor = Color.Red;
+            }
+
+            if (preferences.earlyRiser.HasValue)
+            {
+                if ((bool)preferences.earlyRiser) yesButton3.BackColor = Color.Green;
+                else if (!(bool)preferences.earlyRiser) noButton3.BackColor = Color.Red;
+            }
+
+            if (preferences.stayUpLate.HasValue)
+            {
+                if ((bool)preferences.stayUpLate) yesButton4.BackColor = Color.Green;
+                else if (!(bool)preferences.stayUpLate) noButton4.BackColor = Color.Red;
+            }
+
+            if (preferences.spentTimeRoommate.HasValue)
+            {
+                if ((bool)preferences.spentTimeRoommate) yesButton5.BackColor = Color.Green;
+                else if (!(bool)preferences.spentTimeRoommate) noButton5.BackColor = Color.Red;
+            }
+
+            if (preferences.CommonAreaTidy.HasValue)
+            {
+                if ((bool)preferences.CommonAreaTidy) yesButton6.BackColor = Color.Green;
+                else if (!(bool)preferences.CommonAreaTidy) noButton6.BackColor = Color.Red;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -65,8 +118,7 @@ namespace RoomMate_WinFormsApp
         private void btnMessages_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMessages);
-            // This is where you will swap to message panel when we have one.
-            // ShowPanel(messagePanel);
+            ShowPanel(messages);
         }
 
         private void btnMatches_Click(object sender, EventArgs e)
@@ -85,6 +137,11 @@ namespace RoomMate_WinFormsApp
         {
             ActivateButton(btnSettings);
             ProfilePanel.Visible = false;
+            messages.Visible = false;
+
+            // Might refactor this button to be a refresh button instead of settings
+            // since it is likely that we will remove settings as a button.
+            //LoadProfileInfoFromDB();
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
@@ -122,6 +179,7 @@ namespace RoomMate_WinFormsApp
             // hide all other panels
             ProfilePanel.Visible = false;
             MatchesPanel1.Visible = false;
+            messages.Visible = false;
 
             // display the chosen panel
             displayThisPanel.Visible = true;
@@ -226,7 +284,6 @@ namespace RoomMate_WinFormsApp
                    preferences.CommonAreaTidy != null;
         }
 
-        // set all the question buttons back to default
         private void savePrefbutton1_Click(object sender, EventArgs e)
         {
             if (AreAllQuestionsAnswered(UserPreferences))
@@ -235,14 +292,87 @@ namespace RoomMate_WinFormsApp
                 UserInfo userPref = new UserInfo(loggedInUser, UserPreferences, textBox1.Text);
                 UserInfoWithInt user = new(userPref, 0);
                 SQLiteDataAccess.SavePreferences(user);
-                // these bottom function get the list of users in the database then rank them
-                //List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
-                //List<UserInfoWithInt> rankingUsers = RoommateApp.RankUsers(allUsers, loggedInUser.Username);
             }
             else
             {
                 MessageBox.Show("Please answer all questions before saving.");
             }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+            if (searchBar.Visible == true)
+            {
+                searchBar.Visible = false;
+            }
+            else
+            {
+                searchBar.Visible = true;
+            }
+        }
+
+        private void notifications_Click(object sender, EventArgs e)
+        {
+            if (notificationList.Visible == true)
+            {
+                notificationList.Visible = false;
+            }
+            else
+            {
+                notificationList.Visible = true;
+            }
+        }
+
+        private void chat_Click(object sender, EventArgs e)
+        {
+            if (contactMessages.Visible == true)
+            {
+                contactMessages.Visible = false;
+            }
+            else
+            {
+                contactMessages.Visible = true;
+                contactMessages.BringToFront();
+                contactMessages.Dock = DockStyle.Bottom;
+            }
+        }
+
+        private void send_Click(object sender, EventArgs e)
+        {
+            string message = messageEditor.Text;
+
+            Label textBubble = new Label();
+
+            textBubble.Text = message;
+            textBubble.TextAlign = ContentAlignment.MiddleLeft;
+            textBubble.AutoSize = true;
+            textBubble.Padding = new Padding(10);
+            textBubble.BackColor = Color.LightBlue;
+            textBubble.Margin = new Padding(0, 2, 0, 2);
+
+            int yOffset = 10;
+
+            foreach (Control control in contactMessages.Controls)
+            {
+                yOffset += control.Height + control.Margin.Bottom;
+            }
+
+            textBubble.Location = new Point(10, yOffset);
+
+            textMessageViewer.Controls.Add(textBubble);
+
+            textMessageViewer.ScrollControlIntoView(textBubble);
+
+            messageEditor.Clear();
+
+            sentMessages.Add(sentMessageCounter++, textBubble);
+
+            chat.Text = message;
         }
 
         public static void DisplayRankedUsers(string loggedInUsername, ListBox listBox)
@@ -322,12 +452,12 @@ namespace RoomMate_WinFormsApp
         private void UpdatePreferencesCheckList(Preferences preferences)
         {
             // this updates the checkbox
-            SelectedUsersPreferences.SetItemChecked(0, preferences.isQuiet);
-            SelectedUsersPreferences.SetItemChecked(1, preferences.hasPets);
-            SelectedUsersPreferences.SetItemChecked(2, preferences.earlyRiser);
-            SelectedUsersPreferences.SetItemChecked(3, preferences.stayUpLate);
-            SelectedUsersPreferences.SetItemChecked(4, preferences.spentTimeRoommate);
-            SelectedUsersPreferences.SetItemChecked(5, preferences.CommonAreaTidy);
+            SelectedUsersPreferences.SetItemChecked(0, preferences.isQuiet ?? false);
+            SelectedUsersPreferences.SetItemChecked(1, preferences.hasPets ?? false);
+            SelectedUsersPreferences.SetItemChecked(2, preferences.earlyRiser ?? false);
+            SelectedUsersPreferences.SetItemChecked(3, preferences.stayUpLate ?? false);
+            SelectedUsersPreferences.SetItemChecked(4, preferences.spentTimeRoommate ?? false);
+            SelectedUsersPreferences.SetItemChecked(5, preferences.CommonAreaTidy ?? false);
 
         }
 
@@ -337,6 +467,24 @@ namespace RoomMate_WinFormsApp
             for (int i = 0; i < SelectedUsersPreferences.Items.Count; i++)
             {
                 SelectedUsersPreferences.SetItemChecked(i, false);
+            }
+        }
+
+        private void requestbutton_Click(object sender, EventArgs e)
+        {
+            string senderUsername = "currentUsername";
+            string receiverUsername = "selectedUser"; //this will be replaced after we click on the user that we wanna add 
+
+
+            bool requestSent = RoommateService.SendRequest(senderUsername, receiverUsername);
+
+            if (requestSent)
+            {
+                MessageBox.Show("Roommate request sent successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to send roommate request. It may already exist or there was an error.");
             }
         }
     }

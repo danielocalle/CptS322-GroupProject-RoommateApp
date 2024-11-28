@@ -14,12 +14,6 @@ namespace RoommateAppLibrary
         public string lastname;
         public string aboutMe;
 
-
-
-
-        // the users roommate info that we want to display
-
-        //public UserInfo() { }
         public UserInfo(AccountLoginInfo userName, Preferences Pref, string Aboutme)
         {
             this.account = userName;
@@ -29,6 +23,15 @@ namespace RoommateAppLibrary
 
         }
 
+        public UserInfo(AccountLoginInfo userName, Preferences Pref, string first, string last,string Aboutme)
+        {
+            this.account = userName;
+            this.firstname = first;
+            this.lastname = last;
+            this.prefs = Pref;
+            this.aboutMe = Aboutme;
+
+        }
 
         // will get the data from a database
 
@@ -36,6 +39,5 @@ namespace RoommateAppLibrary
 
         // this takes the dictionary full of users and when someone clicks on a profile
         // we would have a function that will display their info
-
     }
 }
