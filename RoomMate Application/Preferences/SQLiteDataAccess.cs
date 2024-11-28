@@ -39,6 +39,7 @@ namespace RoommateAppLibrary
                 }
             }
         }
+        // this saves the users preferences to the database
         public static void SavePreferences(UserInfoWithInt user)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -57,6 +58,41 @@ namespace RoommateAppLibrary
                 }
 
             }
+
+        }
+        // this function gets a singular user (we use the single user to have access to that users info so we can display it in our matches page)
+        public static UserInfoWithInt GetUserInfo (string username)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                // Query to get user data
+                var query = "SELECT username, firstname, lastname, aboutme, preferences FROM UserInfo Where username = @Username";
+                var userInfo = cnn.QueryFirstOrDefault<dynamic>(query, new { Username = username });
+
+                if (userInfo != null)
+                {
+                    var account = new AccountLoginInfo(userInfo.username, "placeholder", null, userInfo.firstname, userInfo.lastname);
+                    
+                    var preferences = new Preferences
+                    {
+                        isQuiet = userInfo.preferences[0] == '1',
+                        hasPets = userInfo.preferences[1] == '1',
+                        earlyRiser = userInfo.preferences[2] == '1',
+                        stayUpLate = userInfo.preferences[3] == '1',
+                        spentTimeRoommate = userInfo.preferences[4] == '1',
+                        CommonAreaTidy = userInfo.preferences[5] == '1'
+                    };
+
+                    var user = new UserInfo(account, preferences, userInfo.aboutme);
+
+
+
+
+                    return new UserInfoWithInt(user, 0);
+                }
+                return null;
+            }
+
 
         }
 

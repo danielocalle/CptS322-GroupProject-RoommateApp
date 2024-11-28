@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.Xml;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
 using RoommateAppLibrary;
@@ -11,7 +13,7 @@ namespace RoomMate_WinFormsApp
     {
         private Button currentButton;
         private Preferences UserPreferences = new Preferences();
-        List<UserInfoWithInt> rankingUsers = new List<UserInfoWithInt>();
+        private static IEnumerable<UserInfoWithInt> rankedUsers;
 
         private AccountLoginInfo loggedInUser;
         private UserInfo userInfo;
@@ -379,7 +381,7 @@ namespace RoomMate_WinFormsApp
             List<UserInfoWithInt> allUsers = SQLiteDataAccess.GetListOfUsers();
 
             // Rank users  excludes the loggin in user
-            List<UserInfoWithInt> rankedUsers = RoommateApp.RankUsers(allUsers, loggedInUsername);
+            rankedUsers = RoommateApp.RankUsers(allUsers, loggedInUsername);
 
             // Clear the ListBox
             listBox.Items.Clear();
@@ -397,6 +399,75 @@ namespace RoomMate_WinFormsApp
         private void refreshList_Click(object sender, EventArgs e)
         {
             DisplayRankedUsers(loggedInUser.Username, listBox1);
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedUsersTextBio.Clear();
+            ClearCheckList();
+
+
+            // turns selected item to a string
+            string selectedUserTextDisplayed = listBox1.SelectedItem.ToString();
+
+            // parse the string to get the users ranking 
+            int selectedUsersRank = int.Parse(selectedUserTextDisplayed.Split('.')[0]);
+
+            // turn the list of rankedUsers (of type UserWithAnInt) to a string
+            var rankedUsersList = rankedUsers.ToList();
+
+            // then use the user rank we parsed to then get the index of the selected user we're looking for in the list
+            var selectedUser = rankedUsersList[selectedUsersRank - 1];
+
+            // if we find the user in that list of users display the selected users bio in the textbox and preferences in the checkbox
+            if (selectedUser != null)
+            {
+                SelectedUsersTextBio.Text = selectedUser.User.aboutMe;
+                UpdatePreferencesCheckList(selectedUser.User.prefs);
+
+            }
+        }
+
+        private void SelectedUsersTextBio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectedUserslabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectedUsersPrefsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectedUsersPreferences_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdatePreferencesCheckList(Preferences preferences)
+        {
+            // this updates the checkbox
+            SelectedUsersPreferences.SetItemChecked(0, preferences.isQuiet ?? false);
+            SelectedUsersPreferences.SetItemChecked(1, preferences.hasPets ?? false);
+            SelectedUsersPreferences.SetItemChecked(2, preferences.earlyRiser ?? false);
+            SelectedUsersPreferences.SetItemChecked(3, preferences.stayUpLate ?? false);
+            SelectedUsersPreferences.SetItemChecked(4, preferences.spentTimeRoommate ?? false);
+            SelectedUsersPreferences.SetItemChecked(5, preferences.CommonAreaTidy ?? false);
+
+        }
+
+        private void ClearCheckList()
+        {
+            // this clears the checkbox
+            for (int i = 0; i < SelectedUsersPreferences.Items.Count; i++)
+            {
+                SelectedUsersPreferences.SetItemChecked(i, false);
+            }
         }
 
         private void requestbutton_Click(object sender, EventArgs e)
