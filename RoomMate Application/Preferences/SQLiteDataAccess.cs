@@ -208,7 +208,50 @@ namespace RoommateAppLibrary
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-      
+        public static void InitializeDatabase()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute(@"
+            CREATE TABLE IF NOT EXISTS LoginInfo (
+                username TEXT PRIMARY KEY,
+                password TEXT NOT NULL,
+                recovery TEXT NOT NULL,
+                firstname TEXT NOT NULL,
+                lastname TEXT NOT NULL
+            );
+
+            CREATE TABLE IF NOT EXISTS UserInfo (
+                username TEXT PRIMARY KEY,
+                firstname TEXT NOT NULL,
+                lastname TEXT NOT NULL,
+                aboutme TEXT,
+                preferences TEXT,
+                FOREIGN KEY (username) REFERENCES LoginInfo(username)
+            );
+
+            CREATE TABLE IF NOT EXISTS RoommateRequests (
+                RequestId INTEGER PRIMARY KEY AUTOINCREMENT,
+                SenderUsername TEXT NOT NULL,
+                ReceiverUsername TEXT NOT NULL,
+                Status TEXT NOT NULL,
+                FOREIGN KEY (SenderUsername) REFERENCES UserInfo(username),
+                FOREIGN KEY (ReceiverUsername) REFERENCES UserInfo(username)
+            );
+
+            CREATE TABLE IF NOT EXISTS UserRoommates (
+                User1 TEXT NOT NULL,
+                User2 TEXT NOT NULL,
+                PRIMARY KEY (User1, User2),
+                FOREIGN KEY (User1) REFERENCES UserInfo(username),
+                FOREIGN KEY (User2) REFERENCES UserInfo(username)
+            );
+        ");
+            }
+        }
+
+
+
 
     }
 }

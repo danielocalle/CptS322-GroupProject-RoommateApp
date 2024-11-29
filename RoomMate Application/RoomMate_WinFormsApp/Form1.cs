@@ -401,6 +401,8 @@ namespace RoomMate_WinFormsApp
 
         private void requestbutton_Click(object sender, EventArgs e)
         {
+            SQLiteDataAccess.InitializeDatabase();
+
             string senderUsername = "currentUsername";
             string receiverUsername = "selectedUser"; //this will be replaced after we click on the user that we wanna add 
 
